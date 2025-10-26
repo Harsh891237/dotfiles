@@ -2,7 +2,7 @@
 
 * {
   font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
-  font-size: 15px;
+  font-size: 16px;
   color: @on_background;
   background-color: @surface_dim;
   border-radius: 0px;
