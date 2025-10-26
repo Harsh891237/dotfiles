@@ -1,0 +1,65 @@
+@import url("/home/harsh/.config/waybar/colors.css");
+
+* {
+  font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
+  font-size: 15px;
+  color: @on_background;
+  background-color: @surface_dim;
+  border-radius: 0px;
+  font-weight: 500
+}
+
+#custom-updates,
+#custom-swaync,
+#custom-os_button,
+#power-profiles-daemon,
+#tray,
+#cpu,
+#clock,
+#pulseaudio,
+#network,
+#memory,
+#battery {
+  padding: 0px 0px 8px 0px;
+}
+
+#workspaces button {
+  /* background-color: transparent;
+  color: @primary_fixed_dim; */
+  border-left: 2px solid @inverse_surface
+}
+
+#workspaces button.active {
+  color: @primary;
+  border-left: 2px solid @inverse_primary
+}
+
+.modules-left {
+  padding: 15px 5px 10px 5px;
+}
+
+.modules-right {
+  padding: 0px 5px 15px 5px;
+}
+
+/* #workspaces button.active:hover {
+  color: @primary_fixed_dim;
+  background: @surface_bright;
+}
+
+*/
+
+#workspaces button.empty {
+  border-left: 2px solid @outline_variant
+}
+
+
+
+/* #workspaces button:hover {
+  background: @surface_bright;
+}
+
+#workspaces button.urgent {
+  background-color: @error;
+  color: @on_error;
+} */

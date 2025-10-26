@@ -1,0 +1,56 @@
+[config.wallpaper]
+command = "swww"
+arguments = [ "img", "--transition-type", "center", "--transition-step", "12", "transition-fps", "60"]
+set = true
+
+[templates.hyprland]
+input_path = '~/.config/matugen/templates/hyprland-colors.conf'
+output_path = '~/.config/hypr/colors.conf'
+post_hook = 'hyprctl reload'
+
+[templates.waybar]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/waybar/colors.css'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/colors.rasi'
+
+[templates.alacritty]
+input_path = '~/.config/matugen/templates/alacritty.toml'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty.toml'
+output_path = '~/.config/kitty/colors.toml'
+
+#[templates.gtk3]
+#input_path = '~/.config/matugen/templates/gtk-colors.css'
+#output_path = '~/.config/gtk-3.0/colors.css'
+#post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+#[templates.gtk4]
+#input_path = '~/.config/matugen/templates/gtk-colors.css'
+#output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.wlogout]
+input_path = '~/.config/matugen/templates/wlogout.css'
+output_path = '~/.config/wlogout/colors.css'
+
+[schemes.monochrome]
+name = "Monochrome"
+description = "Pure grayscale Matugen scheme"
+kind = "dark"
+
+primary = "#0d0d0d"
+on_primary = "#e0e0e0"
+secondary = "#1a1a1a"
+on_secondary = "#e0e0e0"
+tertiary = "#2a2a2a"
+on_tertiary = "#e0e0e0"
+background = "#0d0d0d"
+on_background = "#e0e0e0"
+surface = "#1a1a1a"
+on_surface = "#e0e0e0"
+outline = "#808080"
+

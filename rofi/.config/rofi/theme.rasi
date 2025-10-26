@@ -1,0 +1,96 @@
+configuration {
+    show-icons: true;
+    icon-theme: "Papirus";
+}
+
+* {
+    font:   "GeistMono Nerd Font Mono 13";
+
+    background-color:   transparent;
+    text-color:         @on-surface;
+
+    margin:     0px;
+    padding:    0px;
+    spacing:    0px;
+}
+
+@import "colors.rasi"
+
+window {
+    location:       north;
+    y-offset:       calc(50% - 176px);
+    width:          550;
+    border-radius:  16px;
+
+    background-color:   @surface-container-high;
+}
+
+mainbox {
+    padding:    15px;
+}
+
+inputbar {
+    background-color:   @outline-variant;
+    border-color:       @secondary;
+
+    border:         2px;
+    border-radius:  16px;
+
+    padding:    8px 16px;
+    spacing:    8px;
+    children:   [ entry ];
+}
+
+entry {
+    placeholder:        "search";
+    placeholder-color:  @outline;
+}
+
+message {
+    margin:             12px 0 0;
+    border-radius:      16px;
+    border-color:       @on-error;
+    background-color:   @error;
+}
+
+textbox {
+    padding:    8px 24px;
+}
+
+listview {
+    background-color:   transparent;
+
+    margin:     12px 0 0;
+    lines:      8;
+    columns:    1;
+
+    fixed-height: false;
+}
+
+element {
+    padding:        8px 16px;
+    spacing:        8px;
+    border-radius:  16px;
+}
+
+element normal active {
+    text-color: @on-error;
+}
+
+element alternate active {
+    text-color: @on-error;
+}
+
+element selected normal, element selected active {
+    background-color:   @secondary;
+    text-color: @surface-container;
+}
+
+element-icon {
+    size:           1em;
+    vertical-align: 0.5;
+}
+
+element-text {
+    text-color: inherit;
+}
