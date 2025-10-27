@@ -5,14 +5,14 @@ return {
     priority = 1000, 
     config = function()
 	require("tokyonight").setup({
-	    transparent = false,
+	    transparent = true,
 	    styles = {
 		sidebars = "transparent",
 		floats = "transparent",
 	    },
 	})
 
-	local bg_transparent = false 
+	local bg_transparent = true 
 	-- Toggle background transparency
 	local toggle_transparency = function()
 	    bg_transparent = not bg_transparent

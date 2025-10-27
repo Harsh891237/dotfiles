@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.keymap.set( "n", "<leader>nt", ":Neotree toggle<CR>" )
+vim.keymap.set( "n", "<leader>e", ":Neotree toggle<CR>" )
 vim.keymap.set( "n", "<leader>cd", ":Ex<CR>" )
 
 -- For conciseness
