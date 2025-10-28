@@ -3,8 +3,9 @@
 * {
   font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
   font-size: 16px;
-  color: @on_background;
-  background-color: @surface_dim;
+  color: @on_surface_variant;
+  /* background-color: #000000; */
+  background-color: @shadow;
   border-radius: 0px;
   font-weight: 500
 }
