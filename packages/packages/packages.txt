@@ -11,10 +11,10 @@ bluez-utils
 brightnessctl
 cheese
 cmatrix
+code
 cpio
 discord
 downgrade
-elephant
 eog
 evtest
 fastfetch
@@ -63,6 +63,7 @@ linux-zen
 linux-zen-headers
 lolcat
 loupe
+lxappearance
 ly
 man-db
 matugen-bin
@@ -107,10 +108,11 @@ sassc
 shotwell
 starship
 stow
-stremio
 swaync
+swi-prolog
 swww
 telegram-desktop
+thunar
 timeshift
 tlp
 tlp-rdw
@@ -125,9 +127,7 @@ unrar
 unzip
 vde2
 vim
-visual-studio-code-bin
 vulkan-intel
-walker
 waybar
 waydroid
 weston
