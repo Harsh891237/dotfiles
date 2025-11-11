@@ -13,7 +13,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
-import "root:/widgets" 
+import "."
 
 PanelWindow {
 id: panelWindow
@@ -55,30 +55,27 @@ Rectangle {
     anchors.bottomMargin: 7
 
     ColumnLayout {
-        anchors {
-            fill: parent
-            horizontalCenter: parent.horizontalCenter
-        }
-        Layout.alignment: Qt.AlignHCenter
+	anchors.fill: parent
+	Layout.alignment: Qt.AlignHCenter
 
-        workspaces {
-            Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: 12
+        Workspaces {
+            // Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 16
         }
 
         Item {
             Layout.fillHeight: true
         }
 
-        cpu {
+        Cpu {
             Layout.bottomMargin: 25
             Layout.alignment: Qt.AlignHCenter
         }
-
-        memory {
+        Memory {
             Layout.bottomMargin: 17
             Layout.alignment: Qt.AlignHCenter
-        }
+	}
+
         Item {
             Layout.alignment: Qt.AlignHCenter
             Layout.bottomMargin: 225
@@ -86,12 +83,10 @@ Rectangle {
                 id: statusArea
                 anchors.horizontalCenter: parent.horizontalCenter
                 spacing: 20
-                clock_date {Layout.alignment: Qt.AlignHCenter}
-                audio     {Layout.alignment: Qt.AlignHCenter}
-                network   {Layout.alignment: Qt.AlignHCenter}
-                battery   {
-                    Layout.alignment: Qt.AlignHCenter
-                }
+                Clock_date { Layout.alignment: Qt.AlignHCenter }
+                Audio      { Layout.alignment: Qt.AlignHCenter }
+                Network    { Layout.alignment: Qt.AlignHCenter }
+                Battery    { Layout.alignment: Qt.AlignHCenter }
             }
         }
     }      

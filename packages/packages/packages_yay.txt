@@ -1,5 +1,6 @@
 asciiquarium-transparent-git
 bash-pipes
+cbonsai
 downgrade
 google-chrome
 gtk-engine-murrine

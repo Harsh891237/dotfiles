@@ -9,6 +9,7 @@ blueman
 bluez
 bluez-utils
 brightnessctl
+cbonsai
 cheese
 cmatrix
 code

@@ -4,7 +4,6 @@ import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
 
-
 Item {
     id: text
     RowLayout {

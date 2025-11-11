@@ -8,13 +8,12 @@ import Quickshell.Wayland
 import Quickshell.Hyprland
 import Quickshell.Widgets
 
-import "./Bar/"
+import "."
 
 ShellRoot {
-    // property bool enableBar: true
-    Bar{}
- //    LazyLoader { 
-	// active: enableBar
-	// component: Bar{}
- //    }
+    property bool enableBar: true
+    LazyLoader { 
+	active: enableBar
+	component: Bar{}
+    }
 }

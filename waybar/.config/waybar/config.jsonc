@@ -135,7 +135,7 @@
     "format-ethernet": "{ipaddr}/{cidr} ",
     "tooltip-format": "Connected to {essid}",
     "format-linked": "{ifname} (No IP) ",
-    "format-disconnected": "󰤭  Disconnected",
+    "format-disconnected": "󰤭",
     "format-icons": [
       "󰤯",
       "󰤟",
