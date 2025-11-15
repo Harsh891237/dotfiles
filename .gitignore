@@ -1,3 +1,7 @@
-**/colors.toml
-**/colors.css
-**/colors.rasi
+hypr/.config/hypr/colors.conf
+rofi/.config/rofi/colors.rasi
+waybar/.config/waybar/colors.css
+wlogout/.config/wlogout/colors.css
+alacritty/.config/alacritty/colors.toml
+kitty/.config/kitty/colors.toml
+
