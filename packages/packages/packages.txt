@@ -12,7 +12,6 @@ brightnessctl
 cbonsai
 cheese
 cmatrix
-code
 cpio
 discord
 downgrade
@@ -24,7 +23,9 @@ firefox
 gammastep
 gedit
 git
+github-cli
 gnome-calculator
+gnome-calendar
 gnome-clocks
 gnome-themes-extra
 gnome-tweaks
@@ -62,6 +63,7 @@ linux-firmware
 linux-lts
 linux-zen
 linux-zen-headers
+localsend-bin
 lolcat
 loupe
 lxappearance
@@ -84,6 +86,7 @@ nwg-look
 oh-my-posh
 openbsd-netcat
 otf-geist-mono-nerd
+otf-monaspace-nerdfonts
 pamixer
 pinta
 piper
@@ -107,6 +110,7 @@ rnote
 rofi
 sassc
 shotwell
+spotify-launcher
 starship
 stow
 swaync
@@ -117,6 +121,7 @@ thunar
 timeshift
 tlp
 tlp-rdw
+tree
 ttc-iosevka
 ttc-iosevka-ss10
 ttf-jetbrains-mono
@@ -128,6 +133,7 @@ unrar
 unzip
 vde2
 vim
+visual-studio-code-bin
 vulkan-intel
 waybar
 waydroid

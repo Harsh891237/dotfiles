@@ -23,8 +23,7 @@ window {
     width:          1600px;
     border-radius:  16px;
 
-    background-color:   @surface-container-high;
-    // background-color:  rgba(0,0,0, 0.5); 
+    background-color:   @on-secondary-fixed;
 }
 
 mainbox {
@@ -32,7 +31,7 @@ mainbox {
 }
 
 inputbar {
-    background-color:   @outline-variant;
+    background-color:   @on-secondary;
     border-color:       @secondary;
 
     border-radius:  16px;
@@ -63,7 +62,7 @@ listview {
 
     margin:     25px 10px 10px;
     spacing: 	12px;
-    lines:      1;
+    lines:      2;
     columns:    4;
 
     fixed-height: true;
@@ -75,7 +74,7 @@ element {
     spacing:        8px;
     border-radius:  16px;
     orientation: vertical;
-    background-color: @surface-container-highest;
+    background-color: @on-secondary;
 }
 
 element normal active {

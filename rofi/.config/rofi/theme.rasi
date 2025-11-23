@@ -23,7 +23,7 @@ window {
     height:	    430;
     border-radius:  20px;
 
-    background-color:   @surface-container-high;
+    background-color:   @on-secondary-fixed;
 }
 
 mainbox {
@@ -31,7 +31,7 @@ mainbox {
 }
 
 inputbar {
-    background-color:   @outline-variant;
+    background-color:   @on-secondary;
     border-color:       @secondary;
 
     border-radius:  15px;

@@ -13,6 +13,6 @@ aur_updates=$(yay -Qum 2> /dev/null | wc -l)
 total_updates=$((pacman_updates + aur_updates))
 
 # Output as JSON for Waybar
-echo "{\"text\": \" $total_updates\", \"tooltip\": \"$pacman_updates from pacman\\n$aur_updates from AUR\"}"
+echo "{\"text\": \" $total_updates\", \"tooltip\": \"$pacman_updates from pacman\\n$aur_updates from AUR\"}"
 
 

@@ -1,13 +1,13 @@
 @import url("/home/harsh/.config/waybar/colors.css");
 
 * {
-  font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
-  font-size: 16px;
-  color: @on_surface_variant;
-  /* background-color: #000000; */
-  background-color: @shadow;
-  border-radius: 0px;
-  font-weight: 500
+    font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
+    font-size: 15.5px;
+    font-weight: 500;
+}
+
+window#waybar {
+    background-color: @background;
 }
 
 #custom-updates,
@@ -21,46 +21,52 @@
 #network,
 #memory,
 #battery {
-  padding: 0px 0px 8px 0px;
+    margin: 5px 0px 5px 0px;
+    padding: 1px 5px 1px 5px;
+    color: @on_surface_variant; 
+    background-color: transparent;
 }
 
 #workspaces button {
-  /* background-color: transparent;
-  color: @primary_fixed_dim; */
-  border-left: 2px solid @inverse_surface
+    background-color: @on_secondary_fixed;
+    border-radius: 500px;
+    padding: 0px 0px 0px 0px;
+    margin: 4px 30px 4px 30px;
+    min-height: 45px;
+    animation: gradient_f 10s ease-in infinite;
+    transition: all 0.25s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
 
 #workspaces button.active {
-  color: @primary;
-  border-left: 2px solid @inverse_primary
+    color: @shadow ;
+    background-color: @primary;
+    border-radius: 500px;
+    padding: 0px 0px 0px 0px;
+    margin: 4px 30px 4px 30px;
 }
 
-.modules-left {
-  padding: 15px 5px 10px 5px;
+#workspaces button:hover {
+    background: @on_secondary;
+    animation: gradient_f 20s ease-in infinite;
+    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
 }
-
-.modules-right {
-  padding: 0px 5px 15px 5px;
-}
-
-/* #workspaces button.active:hover {
-  color: @primary_fixed_dim;
-  background: @surface_bright;
-}
-
-*/
 
 #workspaces button.empty {
-  border-left: 2px solid @outline_variant
+    color: @outline;
 }
 
+#modules.right {
+    margin-top: 15px;
+}
 
-
-/* #workspaces button:hover {
-  background: @surface_bright;
+@keyframes bg-blink {
+    from { background-color: transparent; }
+    to   { background-color: @error; }
 }
 
 #workspaces button.urgent {
-  background-color: @error;
-  color: @on_error;
-} */
+    animation: bg-blink 0.6s steps(1) infinite alternate;
+    color: @on_error;
+}
+
+

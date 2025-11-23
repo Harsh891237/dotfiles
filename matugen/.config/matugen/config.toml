@@ -37,20 +37,7 @@ output_path = '~/.config/kitty/colors.toml'
 input_path = '~/.config/matugen/templates/wlogout.css'
 output_path = '~/.config/wlogout/colors.css'
 
-[schemes.monochrome]
-name = "Monochrome"
-description = "Pure grayscale Matugen scheme"
-kind = "dark"
-
-primary = "#0d0d0d"
-on_primary = "#e0e0e0"
-secondary = "#1a1a1a"
-on_secondary = "#e0e0e0"
-tertiary = "#2a2a2a"
-on_tertiary = "#e0e0e0"
-background = "#0d0d0d"
-on_background = "#e0e0e0"
-surface = "#1a1a1a"
-on_surface = "#e0e0e0"
-outline = "#808080"
-
+[templates.swaync] 
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/swaync/colors.css'
+post_hook = 'swaync-client -rs'

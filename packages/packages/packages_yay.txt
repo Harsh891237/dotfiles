@@ -4,6 +4,7 @@ cbonsai
 downgrade
 google-chrome
 gtk-engine-murrine
+localsend-bin
 matugen-bin
 nautilus-open-any-terminal
 oh-my-posh
@@ -11,6 +12,7 @@ pinta
 quickshell-git
 ttf-readex-pro
 tty-clock
+visual-studio-code-bin
 wlogout
 woff2-material-symbols-variable-git
 yay
