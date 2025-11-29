@@ -11,10 +11,14 @@ bluez-utils
 brightnessctl
 cbonsai
 cheese
+cliphist
 cmatrix
 cpio
 discord
 downgrade
+elephant-bin
+elephant-desktopapplications-bin
+elephant-providerlist-bin
 eog
 evtest
 fastfetch
@@ -26,6 +30,7 @@ git
 github-cli
 gnome-calculator
 gnome-calendar
+gnome-characters
 gnome-clocks
 gnome-themes-extra
 gnome-tweaks
@@ -39,6 +44,7 @@ gst-plugins-good
 gst-plugins-ugly
 gtk-engine-murrine
 gvfs-mtp
+heroic-games-launcher-bin
 htop
 hypridle
 hyprland
@@ -88,7 +94,6 @@ openbsd-netcat
 otf-geist-mono-nerd
 otf-monaspace-nerdfonts
 pamixer
-pinta
 piper
 pipewire
 pipewire-alsa
@@ -112,6 +117,7 @@ sassc
 shotwell
 spotify-launcher
 starship
+steam
 stow
 swaync
 swi-prolog
@@ -135,11 +141,13 @@ vde2
 vim
 visual-studio-code-bin
 vulkan-intel
+walker-bin
 waybar
 waydroid
 weston
 wf-recorder
 wireplumber
+wl-clip-persist
 wlogout
 woff2-font-awesome
 woff2-material-symbols-variable-git
