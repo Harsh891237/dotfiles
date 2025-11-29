@@ -6,113 +6,113 @@
 	"custom/os_button",
 	"clock",
 	"custom/updates"
-  ],
-  "modules-center": [
-      "custom/swaync",
-      "hyprland/workspaces"
-  ],
-  "modules-right": [
-      "cpu",
-      "memory",
-      "battery",
-      "network",
-      "power-profiles-daemon",
-      "tray"
-  ],
-  "hyprland/workspaces": {
-      "format": "{icon}",
-      "disable-scroll": "true",
-      "format-icons": { 
-	  "default": "",
-	  "active": ""
-      },
-      "persistent-workspaces": {
-	  "*": [1,2,3,4,5,6,7,8,9,10]
-      }
-  },
-  "hyprland/mode": {
-      "format": "<span style=\"italic\">{}</span>"
-  },
-  "hyprland/window": {
-      "format": "{class}",
-      "max-lenght": 10
-  },
-  "power-profiles-daemon": {
-      "format": "{icon}",
-      "tooltip": true,
-      "tooltip-format": "Power profile: {profile}",
-      "interval": 5,
-      "format-icons": {
-	  "power-saver": "",
-	  "balanced": "",
-	  "performance": ""
-      }
-  },
-  "custom/os_button": {
-      "format": "󰣇",
-      "on-click": "rofi -show drun",
-      "tooltip": false
-  },
+    ],
+    "modules-center": [
+	"custom/swaync",
+	"hyprland/workspaces"
+    ],
+    "modules-right": [
+	"cpu",
+	"memory",
+	"battery",
+	"network",
+	"power-profiles-daemon",
+	"tray"
+    ],
+    "hyprland/workspaces": {
+	"format": "{icon}",
+	"disable-scroll": "true",
+	"format-icons": { 
+	    "default": "",
+	    "active": ""
+	},
+	"persistent-workspaces": {
+	    "*": [1,2,3,4,5,6,7,8,9,10]
+	}
+    },
+    "hyprland/mode": {
+	"format": "<span style=\"italic\">{}</span>"
+    },
+    "hyprland/window": {
+	"format": "{class}",
+	"max-lenght": 10
+    },
+    "power-profiles-daemon": {
+	"format": "{icon}",
+	"tooltip": true,
+	"tooltip-format": "Power profile: {profile}",
+	"interval": 5,
+	"format-icons": {
+	    "power-saver": "",
+	    "balanced": "",
+	    "performance": ""
+	}
+    },
+    "custom/os_button": {
+	"format": "󰣇",
+	"on-click": "rofi -show drun",
+	"tooltip": false
+    },
 
-  "custom/updates": {
-      "exec": "~/.config/waybar/scripts/update_check.sh",
-      "on-click": "kitty -T Updates yay -Syu",
-      "interval": 3600, // check every hour
-      "tooltip": true,
-      "tooltip-format": "Amount of packages needing update",
-      "return-type": "json"
-  },
+    "custom/updates": {
+	"exec": "~/.config/waybar/scripts/update_check.sh",
+	"on-click": "kitty -T Updates yay -Syu",
+	"interval": 3600, // check every hour
+	"tooltip": true,
+	"tooltip-format": "Amount of packages needing update",
+	"return-type": "json"
+    },
 
-  "custom/swaync": {
-      "format": "",
-      "on-click": "swaync-client -t -sw"
-  },
-  "tray": {
+    "custom/swaync": {
+	"format": "",
+	"on-click": "swaync-client -t -sw"
+    },
+    "tray": {
     // "icon-size": 21,
     "spacing": 10
-  },
-  "clock": {
-      "format": "󰥔 {:%I:%M %p}",
-      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
-      "format-alt": "  {:%a, %d-%B-%Y}"
-  },
-  "cpu": {
-      "format": "  {usage}%",
-      "tooltip": false
-  },
-  "memory": {
-      "format": "  {}%",
-      "tooltip": false
-  },
-  "battery": {
-      "states": {
-	  "good": 95,
-	  "warning": 20,
-	  "critical": 10
-      },
-      "format": "{icon}  {capacity}%",
-      "format-charging": "󰂄  {capacity}%",
-      "tooltip": true,
-      "tooltip-format": "{time}",
-      "format-icons": [
-	  "󰂎",
-	  "󰁺",
-	  "󰁻",
-	  "󰁼",
-	  "󰁽",
-	  "󰁾",
-	  "󰁿",
-	  "󰂀",
-	  "󰂁",
-	  "󰂂",
-	  "󰁹"
-    ],
-    "signal": 8
-  },
-  "battery#bat2": {
-      "bat": "BAT2"
-  },
-  "network": {
+    },
+    "clock": {
+	"format": "󰥔 {:%I:%M %p}",
+	"tooltip-format": "<big>{:%Y %B}</big>\n<tt><big>{calendar}</big></tt>",
+	"format-alt": "  {:%a, %d-%B-%Y}"
+    },
+    "cpu": {
+	"format": "  {usage}%",
+	"tooltip": false
+    },
+    "memory": {
+	"format": "  {}%",
+	"tooltip": false
+    },
+    "battery": {
+	"states": {
+	    "good": 95,
+	    "warning": 20,
+	    "critical": 10
+	},
+	"format": "{icon}  {capacity}%",
+	"format-charging": "󰂄  {capacity}%",
+	"tooltip": true,
+	"tooltip-format": "{time}",
+	"format-icons": [
+	    "󰂎",
+	    "󰁺",
+	    "󰁻",
+	    "󰁼",
+	    "󰁽",
+	    "󰁾",
+	    "󰁿",
+	    "󰂀",
+	    "󰂁",
+	    "󰂂",
+	    "󰁹"
+	],
+	"signal": 8
+    },
+    "battery#bat2": {
+	"bat": "BAT2"
+    },
+    "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
     "format-wifi": "{icon}",
     "format-ethernet": "{ipaddr}/{cidr} ",
@@ -126,8 +126,8 @@
 	"󰤥",
 	"󰤨"
     ]
-  },
-  "pulseaudio": {
+    },
+    "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
     "format": "{icon}  {volume}%",
     "format-bluetooth": "  {volume}%",
@@ -143,5 +143,5 @@
 	]
     },
     "on-click": "blueman-manager"
-  }
+    }
 }
