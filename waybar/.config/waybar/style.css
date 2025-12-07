@@ -1,13 +1,21 @@
 @import url("/home/harsh/.config/waybar/colors.css");
 
 * {
-    font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
-    font-size: 15.5px;
-    font-weight: 500;
+  font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
+  font-size: 15.5px;
+  font-weight: 500;
+
+  border: none;
+  border-radius: 0px;
+
+  min-height: 0;
+  padding: 0;
+  margin: 0;
 }
 
 window#waybar {
-    background-color: @background;
+  /* background-color: @background; */
+  background: transparent;
 }
 
 #custom-updates,
@@ -21,52 +29,73 @@ window#waybar {
 #network,
 #memory,
 #battery {
-    margin: 5px 0px 5px 0px;
-    padding: 1px 5px 1px 5px;
-    color: @on_surface_variant; 
-    background-color: transparent;
+  margin: 3px 3px;
+  padding: 3px 1px;
+  color: @on_background;
+  border-radius: 28px;
+  background-color: @on_primary;
+}
+
+tooltip {
+  background: @background;
+  border-radius: 12px;
+  border: 1px solid @on_primary;
+}
+
+tooltip label {
+  color: @primary;
+  padding: 6px;
+}
+
+#workspaces {
+  background-color: @on_primary;
+  padding: 5px 5px 5px 5px;
+  margin: 7px 3px 0px 3px;
+  border-radius: 28px;
+  color: @shadow;
 }
 
 #workspaces button {
-    background-color: @on_secondary_fixed;
-    border-radius: 500px;
-    padding: 0px 0px 0px 0px;
-    margin: 4px 30px 4px 30px;
-    min-height: 45px;
-    animation: gradient_f 10s ease-in infinite;
-    transition: all 0.25s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+  background-color: @on_secondary_fixed;
+  color: transparent;
+  min-height: 29px;
+  border-radius: 50px;
+  padding: 5px 9px 5px 9px;
+  margin: 3px 3px;
+  transition: all 0.3s ease-in-out;
 }
 
 #workspaces button.active {
-    color: @shadow ;
-    background-color: @primary;
-    border-radius: 500px;
-    padding: 0px 0px 0px 0px;
-    margin: 4px 30px 4px 30px;
+  color: @shadow;
+  background-color: @primary;
+  min-height: 43px;
+  border-radius: 50px;
+  padding: 7px 7px 7px 7px;
+  margin: 3px 3px;
 }
 
 #workspaces button:hover {
-    background: @on_secondary;
-    animation: gradient_f 20s ease-in infinite;
-    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
-}
-
-#workspaces button.empty {
-    color: @outline;
-}
-
-#modules.right {
-    margin-top: 15px;
-}
-
-@keyframes bg-blink {
-    from { background-color: transparent; }
-    to   { background-color: @error; }
+  background: @secondary_fixed_dim;
+  color: red;
+  background-size: 400% 400%;
+  transition: all 0.25s ease-in-out;
 }
 
 #workspaces button.urgent {
-    animation: bg-blink 0.6s steps(1) infinite alternate;
-    color: @on_error;
+  background: @error;
+  min-width: 40px;
+  background-size: 400% 400%;
+  transition: all 0.25s ease-in-out;
 }
 
+#workspaces button.empty {
+  color: @outline;
+}
 
+#custom-os_button {
+  margin-top: 10px;
+}
+
+#tray {
+  margin-bottom: 10px;
+}

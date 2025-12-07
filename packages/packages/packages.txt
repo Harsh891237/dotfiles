@@ -14,6 +14,7 @@ cheese
 cliphist
 cmatrix
 cpio
+dipc
 discord
 downgrade
 elephant-bin
@@ -46,6 +47,7 @@ gtk-engine-murrine
 gvfs-mtp
 heroic-games-launcher-bin
 htop
+hypremoji
 hypridle
 hyprland
 hyprlock
@@ -100,6 +102,8 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 polkit-gnome
+proton-vpn-gtk-app
+python-pandas
 python-pyclip
 qalculate-gtk
 qbittorrent

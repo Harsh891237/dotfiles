@@ -1,6 +1,7 @@
 asciiquarium-transparent-git
 bash-pipes
 cbonsai
+dipc
 downgrade
 elephant-bin
 elephant-desktopapplications-bin
@@ -8,6 +9,7 @@ elephant-providerlist-bin
 google-chrome
 gtk-engine-murrine
 heroic-games-launcher-bin
+hypremoji
 localsend-bin
 matugen-bin
 nautilus-open-any-terminal

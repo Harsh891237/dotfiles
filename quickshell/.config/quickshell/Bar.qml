@@ -24,8 +24,10 @@ anchors {
     bottom: true
 }
 margins { 
-    left: 7
-    right: 0
+    left: 9
+    right: -5
+    top: 17
+    bottom: 17
 }
 color: "transparent"
 implicitWidth: 60 // e.g., 50px for the bar + 10px for shadow space
