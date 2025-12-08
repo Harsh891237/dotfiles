@@ -3,9 +3,6 @@ bash-pipes
 cbonsai
 dipc
 downgrade
-elephant-bin
-elephant-desktopapplications-bin
-elephant-providerlist-bin
 google-chrome
 gtk-engine-murrine
 heroic-games-launcher-bin
@@ -18,7 +15,6 @@ quickshell-git
 ttf-readex-pro
 tty-clock
 visual-studio-code-bin
-walker-bin
 wlogout
 woff2-material-symbols-variable-git
 yay
