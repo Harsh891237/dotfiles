@@ -17,9 +17,6 @@ cpio
 dipc
 discord
 downgrade
-elephant-bin
-elephant-desktopapplications-bin
-elephant-providerlist-bin
 eog
 evtest
 fastfetch
@@ -104,6 +101,8 @@ pipewire-pulse
 polkit-gnome
 proton-vpn-gtk-app
 python-pandas
+python-pip
+python-pipx
 python-pyclip
 qalculate-gtk
 qbittorrent
@@ -145,7 +144,6 @@ vde2
 vim
 visual-studio-code-bin
 vulkan-intel
-walker-bin
 waybar
 waydroid
 weston
