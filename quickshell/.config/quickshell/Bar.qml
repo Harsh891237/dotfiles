@@ -7,6 +7,7 @@ import Quickshell.Hyprland
 import Quickshell.Widgets
 import Quickshell.Services.Pipewire
 import Quickshell.Services.UPower
+import Quickshell.Services.SystemTray
 import QtQuick
 import QtQuick.Effects
 import QtQuick.Controls
@@ -25,7 +26,7 @@ anchors {
 }
 margins { 
     left: 9
-    right: -5
+    right: -3
     top: 17
     bottom: 17
 }
@@ -45,8 +46,8 @@ RectangularShadow {
 Rectangle {
     id: bar
     width: 52
-    radius: 20
-    color: "#0f1513"
+    radius: 30
+    color: Theme.background
     // border.width: 1
     // border.color: "#918f8a"
     
@@ -57,41 +58,55 @@ Rectangle {
     anchors.bottomMargin: 7
 
     ColumnLayout {
-	anchors.fill: parent
-	Layout.alignment: Qt.AlignHCenter
+        anchors.fill: parent
+        anchors.topMargin: 10     // Give some breathing room at the top
+        anchors.bottomMargin: 10  // Critical: Stops items from hitting the bottom edge
+        spacing: 0                // We control spacing manually between big groups
 
+        // --- TOP SECTION (Workspaces) ---
         Workspaces {
-            // Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: 16
+            Layout.alignment: Qt.AlignHCenter
+            Layout.topMargin: 10
+            Layout.bottomMargin: 20 
         }
 
+        // --- MIDDLE SECTION (Spacer) ---
         Item {
-            Layout.fillHeight: true
+            Layout.fillHeight: true 
+            Layout.fillWidth: true
         }
 
-        Cpu {
-            Layout.bottomMargin: 25
+        // --- BOTTOM SECTION (Stats & Tray) ---
+        ColumnLayout {
             Layout.alignment: Qt.AlignHCenter
-        }
-        Memory {
-            Layout.bottomMargin: 17
-            Layout.alignment: Qt.AlignHCenter
-	}
+            spacing: 20 // Consistent spacing between CPU, Clock, Audio, etc.
 
-        Item {
-            Layout.alignment: Qt.AlignHCenter
-            Layout.bottomMargin: 225
-            ColumnLayout {
-                id: statusArea
-                anchors.horizontalCenter: parent.horizontalCenter
-                spacing: 20
-                Clock_date { Layout.alignment: Qt.AlignHCenter }
-                Audio      { Layout.alignment: Qt.AlignHCenter }
-                Network    { Layout.alignment: Qt.AlignHCenter }
-                Battery    { Layout.alignment: Qt.AlignHCenter }
+            // Hardware Stats
+            Cpu { 
+                Layout.alignment: Qt.AlignHCenter
+                // Layout.preferredHeight: 9
+                Layout.bottomMargin: 9
+            }
+            Memory { 
+                Layout.alignment: Qt.AlignHCenter 
+                Layout.bottomMargin: 5
+            }
+
+            // System Info
+            Clock_date { Layout.alignment: Qt.AlignHCenter }
+            
+            // Controls
+            Audio   { Layout.alignment: Qt.AlignHCenter }
+            Network { Layout.alignment: Qt.AlignHCenter }
+            Battery { Layout.alignment: Qt.AlignHCenter }
+            
+            // Tray (At the very bottom of the content stack)
+            SysTray { 
+                Layout.alignment: Qt.AlignHCenter 
+                Layout.bottomMargin: 5 // Tiny extra lift from the bottom edge
             }
         }
-    }      
+    }   
 }
 }
 

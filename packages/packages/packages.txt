@@ -2,6 +2,7 @@ acpi
 adw-gtk-theme
 alacritty
 asciiquarium-transparent-git
+auto-cpufreq
 base
 base-devel
 bash-pipes
@@ -18,10 +19,12 @@ dipc
 discord
 downgrade
 eog
+everforest-gtk-theme-git
 evtest
 fastfetch
 file-roller
 firefox
+foliate
 gammastep
 gedit
 git
@@ -55,7 +58,7 @@ intel-gpu-tools
 intel-media-driver
 intel-ucode
 iw
-jre21-openjdk
+jre-openjdk
 kitty
 kvantum
 kvantum-qt5
@@ -104,6 +107,7 @@ python-pandas
 python-pip
 python-pipx
 python-pyclip
+python-pywal16
 qalculate-gtk
 qbittorrent
 qt5-tools
@@ -128,8 +132,6 @@ swww
 telegram-desktop
 thunar
 timeshift
-tlp
-tlp-rdw
 tree
 ttc-iosevka
 ttc-iosevka-ss10

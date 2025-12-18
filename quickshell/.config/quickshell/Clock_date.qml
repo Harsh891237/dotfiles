@@ -11,7 +11,7 @@ import QtQuick.Effects
 import QtQuick.Controls
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
-
+import "."
 ColumnLayout {
     id: clockContainer
     Layout.alignment: Qt.AlignHCenter
@@ -24,7 +24,7 @@ ColumnLayout {
         font.pixelSize: 19
         font.family: "Rubik"
         font.weight: Font.Bold
-        color: "white"
+        color: Theme.on_background
     }
 
     Text {
@@ -34,7 +34,7 @@ ColumnLayout {
         font.pixelSize: 18
         font.family: "Rubik"
         font.weight: Font.Bold
-        color: "white"
+        color: Theme.on_background
     }
 
     // Text {
@@ -52,7 +52,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
         font.pixelSize: 15
         font.family: "Rubik"
-        color: "#bbbbbb"
+        color: Theme.on_surface_variant
     }
     
     Text {
@@ -60,7 +60,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
         font.pixelSize: 15
         font.family: "Rubik"
-        color: "#bbbbbb"
+        color: Theme.on_surface_variant
     }
     
     Text {
@@ -68,7 +68,7 @@ ColumnLayout {
         Layout.alignment: Qt.AlignHCenter
         font.pixelSize: 15
         font.family: "Rubik"
-        color: "#bbbbbb"
+        color: Theme.on_surface_variant
     }
 
 

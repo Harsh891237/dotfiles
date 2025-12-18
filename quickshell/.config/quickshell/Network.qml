@@ -4,6 +4,7 @@ import Quickshell.Wayland
 import Quickshell.Widgets
 import QtQuick
 import QtQuick.Layouts
+import "."
 
 Item {
     id: networkRoot
@@ -58,7 +59,7 @@ Item {
         Text {
             text: connectionIcon
             font.pixelSize: 16
-            color: "white"
+            color: Theme.on_background
             font.family: "JetBrainsMono Nerd Font Propo"
         }
     }

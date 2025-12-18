@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
-
+import "."
 Item {
     id: text
     RowLayout {
@@ -15,14 +15,14 @@ Item {
         Text {
             font.family: "Rubik"
             font.pixelSize: 14
-            color: "white"
+            color: Theme.on_background
             text: `${Math.floor(percentFree)}`
         }
         // Icon
         Text {
             font.family: "Material Symbols Outlined"
             font.pixelSize: 17
-            color: "white"
+            color: Theme.on_background
             text: "\uf7a3"
         } 
     }

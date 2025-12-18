@@ -7,7 +7,7 @@ import Quickshell.Services.Pipewire
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-
+import "."
 ColumnLayout {
     id: root
     property QtObject sink: Pipewire.defaultAudioSink
@@ -61,7 +61,7 @@ ColumnLayout {
         Text {
             font.family: "Material Symbols Outlined"
             font.pixelSize: 18
-            color: "white"
+            color: Theme.on_background
             text: {
                 if (isMuted) {
                     return "󰖁"; // muted

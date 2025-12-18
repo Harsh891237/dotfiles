@@ -3,7 +3,7 @@ import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell
 import Quickshell.Io
-
+import "."
 Item {
     id: root
 
@@ -19,13 +19,13 @@ Item {
         Text {
             font.family: "Rubik"
             font.pixelSize: 14
-            color: "white"
+            color: Theme.on_background
             text: `${Math.round(cpuUsage)}`
         }
         Text {
             font.family: "Material Symbols Outlined"
             font.pixelSize: 17
-            color: "white"
+            color: Theme.on_background
             text: "\ue8b8"
         }
     }

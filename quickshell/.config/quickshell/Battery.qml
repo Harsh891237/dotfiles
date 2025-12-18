@@ -11,7 +11,7 @@ import QtQuick.Effects
 import QtQuick.Controls
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
-
+import "."
 Item {
     id: batteryRoot
 
@@ -26,13 +26,18 @@ Item {
                 font.family: "Rubik"
                 font.pixelSize: 14
                 text: Math.round(battery.percentage * 100)
+                leftPadding: 3.4
                 color: "white"
+                Layout.alignment: Qt.AlignVCenter
             }
 
             Text {
                 id: batteryIcon
                 font.family: "Material Symbols Outlined"
                 font.pixelSize: 17
+                Layout.alignment: Qt.AlignVCenter
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignHCenter
             }
         }
     }

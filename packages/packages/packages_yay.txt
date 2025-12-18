@@ -1,8 +1,10 @@
 asciiquarium-transparent-git
+auto-cpufreq
 bash-pipes
 cbonsai
 dipc
 downgrade
+everforest-gtk-theme-git
 google-chrome
 gtk-engine-murrine
 heroic-games-launcher-bin
@@ -11,6 +13,7 @@ localsend-bin
 matugen-bin
 nautilus-open-any-terminal
 oh-my-posh
+python-pywal16
 quickshell-git
 ttf-readex-pro
 tty-clock
