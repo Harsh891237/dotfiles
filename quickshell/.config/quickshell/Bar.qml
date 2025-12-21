@@ -37,10 +37,10 @@ RectangularShadow {
     anchors.fill: bar 
     offset.x: 2
     offset.y: 2
-    radius: 20 
+    radius: 20
     blur: 10
     spread: 0.3
-    color: Qt.darker(bar.color, 1.6) 
+    color: Qt.darker(bar.color, 1.6)
 }
 
 Rectangle {
@@ -59,7 +59,7 @@ Rectangle {
 
     ColumnLayout {
         anchors.fill: parent
-        anchors.topMargin: 10     // Give some breathing room at the top
+        anchors.topMargin: 10   // Give some breathing room at the top
         anchors.bottomMargin: 10  // Critical: Stops items from hitting the bottom edge
         spacing: 0                // We control spacing manually between big groups
 
