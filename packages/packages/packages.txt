@@ -75,7 +75,6 @@ localsend-bin
 lolcat
 loupe
 lxappearance
-ly
 man-db
 matugen-bin
 mesa-utils
