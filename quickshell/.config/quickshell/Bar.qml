@@ -20,13 +20,14 @@ PanelWindow {
 id: panelWindow
 
 anchors {
-    left: true
+    // left: true
+    right: true
     top: true
     bottom: true
 }
 margins { 
-    left: 9
-    right: -3
+    left: 1
+    right: 7
     top: 17
     bottom: 17
 }
@@ -35,8 +36,8 @@ implicitWidth: 60 // e.g., 50px for the bar + 10px for shadow space
 
 RectangularShadow {
     anchors.fill: bar 
-    offset.x: 2
-    offset.y: 2
+    offset.x: -1
+    offset.y: 1
     radius: 20
     blur: 10
     spread: 0.3
@@ -51,7 +52,7 @@ Rectangle {
     // border.width: 1
     // border.color: "#918f8a"
     
-    anchors.left: parent.left
+    anchors.right: parent.right
     anchors.top: parent.top
     anchors.topMargin: 7
     anchors.bottom: parent.bottom

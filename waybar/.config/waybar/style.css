@@ -33,7 +33,7 @@ window#waybar {
   padding: 3px 1px;
   color: @on_background;
   border-radius: 28px;
-  background-color: @on_primary;
+  background-color: @background;
 }
 
 tooltip {
@@ -48,7 +48,7 @@ tooltip label {
 }
 
 #workspaces {
-  background-color: @on_primary;
+  background-color: @background;
   padding: 5px 5px 5px 5px;
   margin: 7px 3px 0px 3px;
   border-radius: 28px;

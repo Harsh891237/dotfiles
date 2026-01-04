@@ -51,6 +51,10 @@ Item {
 
     Component.onCompleted: updateBatteryStatus()
 
+    MyTooltip {
+        text: "Battery: " + Math.round(battery.percentage * 100) + "%"
+    }
+
     function updateBatteryStatus() {
         if (!battery) return;
         batteryIcon.text = getBatteryIcon();

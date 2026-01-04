@@ -1,5 +1,5 @@
 {
-  "position": "right",
+  "position": "left",
   "margin-right": 7,
   "modules-left": ["custom/os_button", "clock", "custom/updates"],
   "modules-center": ["custom/swaync", "hyprland/workspaces"],
