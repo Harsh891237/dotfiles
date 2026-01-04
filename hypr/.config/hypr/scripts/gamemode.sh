@@ -10,8 +10,7 @@ if [ "$HYPRGAMEMODE" = 1 ] ; then
         keyword decoration:rounding 0;\
         keyword general:gaps_in 2;\
         keyword general:gaps_out 0;\
-        keyword general:border_size 0;\
-        setprop address:$addr opacity 0.1"
+        keyword general:border_size 0;"
     exit
 fi
 
