@@ -148,10 +148,12 @@ vulkan-intel
 waybar
 waydroid
 weston
+wev
 wf-recorder
 wireplumber
 wl-clip-persist
 wlogout
+wlr-randr
 woff2-font-awesome
 woff2-material-symbols-variable-git
 xdg-desktop-portal

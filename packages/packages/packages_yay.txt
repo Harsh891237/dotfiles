@@ -2,6 +2,7 @@ asciiquarium-transparent-git
 auto-cpufreq
 bash-pipes
 cbonsai
+cheese
 dipc
 downgrade
 everforest-gtk-theme-git
