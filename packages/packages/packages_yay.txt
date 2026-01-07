@@ -1,9 +1,4 @@
-asciiquarium-transparent-git
 auto-cpufreq
-bash-pipes
-cbonsai
-cheese
-dipc
 downgrade
 everforest-gtk-theme-git
 google-chrome
@@ -17,7 +12,6 @@ oh-my-posh
 python-pywal16
 quickshell-git
 ttf-readex-pro
-tty-clock
 visual-studio-code-bin
 wlogout
 woff2-material-symbols-variable-git

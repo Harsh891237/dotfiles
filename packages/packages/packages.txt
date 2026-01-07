@@ -1,21 +1,15 @@
 acpi
 adw-gtk-theme
 alacritty
-asciiquarium-transparent-git
 auto-cpufreq
 base
 base-devel
-bash-pipes
 blueman
 bluez
 bluez-utils
 brightnessctl
-cbonsai
-cheese
 cliphist
-cmatrix
 cpio
-dipc
 discord
 downgrade
 eog
@@ -24,11 +18,11 @@ evtest
 fastfetch
 file-roller
 firefox
-foliate
 gammastep
 gedit
 git
 github-cli
+gnome-boxes
 gnome-calculator
 gnome-calendar
 gnome-characters
@@ -72,7 +66,6 @@ linux-lts
 linux-zen
 linux-zen-headers
 localsend-bin
-lolcat
 loupe
 lxappearance
 man-db
@@ -90,6 +83,7 @@ noto-fonts
 noto-fonts-cjk
 npm
 nwg-look
+obsidian
 oh-my-posh
 openbsd-netcat
 otf-geist-mono-nerd
@@ -107,7 +101,6 @@ python-pip
 python-pipx
 python-pyclip
 python-pywal16
-qalculate-gtk
 qbittorrent
 qt5-tools
 qt5ct
@@ -126,7 +119,6 @@ starship
 steam
 stow
 swaync
-swi-prolog
 swww
 telegram-desktop
 thunar
@@ -137,8 +129,6 @@ ttc-iosevka-ss10
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
 ttf-readex-pro
-tty-clock
-ttyper
 unrar
 unzip
 vde2
