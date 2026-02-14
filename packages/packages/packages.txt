@@ -118,6 +118,7 @@ spotify-launcher
 starship
 steam
 stow
+subversion
 swaync
 swww
 telegram-desktop
