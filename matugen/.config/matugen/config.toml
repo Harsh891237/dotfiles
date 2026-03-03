@@ -1,7 +1,5 @@
 [config.wallpaper]
-command = "swww"
-arguments = [ "img", "--transition-type", "center", "--transition-step", "12", "transition-fps", "60"]
-set = true
+command = 'swww'
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'

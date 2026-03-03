@@ -1,101 +1,141 @@
-@import url("/home/harsh/.config/waybar/colors.css");
+@import url("../../.config/waybar/colors.css");
 
 * {
-  font-family: "Rubik", "JetBrainsMono Nerd Font Propo", sans-serif;
-  font-size: 15.5px;
-  font-weight: 500;
-
-  border: none;
-  border-radius: 0px;
-
+  font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+  font-size: 13px;
+  font-weight: bold;
   min-height: 0;
-  padding: 0;
-  margin: 0;
+  border: none;
+  border-radius: 0;
 }
 
 window#waybar {
-  /* background-color: @background; */
   background: transparent;
+  color: @on_surface;
 }
 
-#custom-updates,
-#custom-swaync,
-#custom-os_button,
-#power-profiles-daemon,
-#tray,
-#cpu,
+/* UNIFIED CAPSULE STYLE */
 #clock,
+#custom-notification,
+#workspaces,
+#group-stats,
 #pulseaudio,
-#network,
+#battery,
+#custom-network {
+  background-color: @surface_container;
+  color: @on_surface;
+  border-radius: 100px;
+
+  /* CHANGED: Reduced side margins from 2px to 1px to fit the 38px width */
+  margin: 3px 1px;
+
+  padding: 6px 0px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* --- TOP SECTION --- */
+#clock {
+  background-color: @primary;
+  color: @on_primary;
+  /* CHANGED: 10px ensures 4 digits (e.g. 12:00) fit comfortably */
+  font-size: 10px;
+  padding-bottom: 7px;
+}
+
+#group-stats {
+  background-color: @surface_container_low;
+  padding: 8px 0;
+}
+
+#cpu,
 #memory,
-#battery {
-  margin: 3px 3px;
-  padding: 3px 1px;
-  color: @on_background;
-  border-radius: 28px;
-  background-color: @background;
+#temperature {
+  background: transparent;
+  box-shadow: none;
+  margin: 4px 0;
+  padding: 0;
+  font-size: 10px;
+  color: @on_surface_variant;
+
+  /* ADDED: Strong black text-shadow for visibility on light backgrounds */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
 }
 
-tooltip {
-  background: @background;
-  border-radius: 12px;
-  border: 1px solid @on_primary;
+/* ADDED: Critical State Coloring (Red when > 80%) */
+#cpu.critical,
+#memory.critical,
+#temperature.critical {
+  color: @error;
 }
 
-tooltip label {
-  color: @primary;
-  padding: 6px;
+#custom-notification {
+  color: @on_surface_variant;
+  padding: 6px 4px 6px 3px;
+  border-radius: 30px;
 }
 
+/* --- CENTER SECTION --- */
 #workspaces {
-  background-color: @background;
-  padding: 5px 5px 5px 5px;
-  margin: 7px 3px 0px 3px;
-  border-radius: 28px;
-  color: @shadow;
+  background-color: @surface_container_high;
+  padding: 2px 0;
 }
 
 #workspaces button {
-  background-color: @on_secondary_fixed;
-  color: transparent;
-  min-height: 29px;
-  border-radius: 50px;
-  padding: 5px 9px 5px 9px;
-  margin: 3px 3px;
-  transition: all 0.3s ease-in-out;
+  padding: 0;
+  /* CHANGED: Reduced horizontal margin */
+  margin: 2px 4px;
+  padding: 2px 0;
+  border-radius: 16px;
+  color: @on_surface_variant;
+  background-color: @surface_container_highest;
+  transition: all 0.2s ease;
 }
 
 #workspaces button.active {
-  color: @shadow;
   background-color: @primary;
-  min-height: 43px;
-  border-radius: 50px;
-  padding: 7px 7px 7px 7px;
-  margin: 3px 3px;
-}
-
-#workspaces button:hover {
-  background: @secondary_fixed_dim;
-  color: red;
-  background-size: 400% 400%;
-  transition: all 0.25s ease-in-out;
+  padding: 8px 0;
+  color: @on_primary;
 }
 
 #workspaces button.urgent {
-  background: @error;
-  min-width: 40px;
-  background-size: 400% 400%;
-  transition: all 0.25s ease-in-out;
+  background-color: @error;
+  color: @on_error;
 }
 
-#workspaces button.empty {
-  color: @outline;
+#workspaces button:hover {
+  background-color: @on_primary_fixed_variant;
 }
 
-#custom-os_button {
-  margin-top: 10px;
+/* --- BOTTOM SECTION --- */
+#custom-network {
+  font-size: 10px;
+  padding: 8px 0;
 }
 
-#tray {
-  margin-bottom: 10px;
+#pulseaudio,
+#battery {
+  /* CHANGED: 10px guarantees '100' fits in 38px width */
+  font-size: 10px;
+  padding: 8px 0;
+}
+
+#battery.charging {
+  color: @tertiary;
+}
+#battery.warning {
+  color: @error;
+}
+
+#custom-power {
+  /*background-color: @error_container;
+    color: @on_error_container;*/
+  font-size: 16px; /* Slightly smaller icon to match narrow width */
+  border-radius: 100px;
+  margin: 3px 1px;
+  padding: 3px 4px 3px 0px;
+}
+
+#custom-power:hover {
+  background-color: @error;
+  color: @on_error;
 }
