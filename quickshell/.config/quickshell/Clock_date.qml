@@ -24,7 +24,9 @@ ColumnLayout {
         font.pixelSize: 19
         font.family: "Rubik"
         font.weight: Font.Bold
-        color: Theme.on_background
+        color: Theme.primary
+        
+        Layout.topMargin: 6
     }
 
     Text {
@@ -69,6 +71,7 @@ ColumnLayout {
         font.pixelSize: 15
         font.family: "Rubik"
         color: Theme.on_surface_variant
+        Layout.bottomMargin: 15
     }
 
 

@@ -11,23 +11,23 @@ Item {
     property int prevIdle: -1
     property int prevTotal: -1
 
-    RowLayout {
-        spacing: 2
+    ColumnLayout {
+        spacing: 0
         anchors.centerIn: parent
         Layout.alignment: Qt.AlignVCenter
-
-        Text {
-            font.family: "Rubik"
-            font.pixelSize: 14
-            color: Theme.on_background
-            text: `${Math.round(cpuUsage)}`
-        }
         Text {
             font.family: "Material Symbols Outlined"
-            font.pixelSize: 17
+            font.pixelSize: 14
             color: Theme.on_background
             text: "\ue8b8"
         }
+        Text {
+            font.family: "Rubik"
+            font.pixelSize: 13
+            color: Math.round(cpuUsage) > 80 ? Theme.error : Theme.on_background
+            text: `${Math.round(cpuUsage)}`
+        }
+        
     }
 
     Process {

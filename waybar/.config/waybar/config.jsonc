@@ -1,24 +1,19 @@
-//Minimal Vertical
 {
   "layer": "top",
   "position": "left",
   "spacing": 0,
   "width": 30, // Slightly wider to fit the numbers comfortably
-  "margin-top": 5,
-  "margin-bottom": 5,
-  "margin-left": 4,
-  "margin-right": 4,
+  "margin-top": 15,
+  "margin-bottom": 15,
+  "margin-left": 8,
+  "margin-right": 0,
   "fixed-center": true,
   "reload_style_on_change": true,
 
   // ===================================================================
   // MODULE LAYOUT
   // ===================================================================
-  "modules-left": [
-    "clock",
-    //"group/stats",
-    "custom/notification",
-  ],
+  "modules-left": ["clock", /*"group/stats"*/ "custom/notification"],
 
   "modules-center": ["hyprland/workspaces"],
 
@@ -26,6 +21,7 @@
     //"custom/network",
     "pulseaudio",
     "battery",
+    "network",
     "custom/power",
   ],
 
@@ -43,13 +39,13 @@
 
   "group/stats": {
     "orientation": "vertical",
-    "modules": ["cpu", "memory", "temperature"],
+    "modules": ["cpu", "memory"],
   },
 
   "cpu": {
     "format": "\n{usage}",
     "interval": 2,
-    "on-click": "uwsm-app -- kitty --class htop -e htop",
+    "on-click": "kitty --class htop -e htop",
     "tooltip-format": "CPU: {usage}%",
     "states": {
       "critical": 80,
@@ -59,25 +55,17 @@
   "memory": {
     "format": "\n{percentage}",
     "interval": 2,
-    "on-click": "uwsm-app -- kitty --class io_monitor.sh -e $HOME/user_scripts/drives/io_monitor.sh",
+    "on-click": "kitty --class io_monitor.sh -e $HOME/user_scripts/drives/io_monitor.sh",
     "tooltip-format": "Used: {used}GiB",
     "states": {
       "critical": 80,
     },
   },
 
-  "temperature": {
-    "thermal-zone": 6,
-    "format": "\n{temperatureC}",
-    "critical-threshold": 80,
-    "format-critical": "🔥\n{temperatureC}",
-    "tooltip-format": "Temp: {temperatureC}°C",
-  },
-
   "clock": {
-    "format": "{:%I\n%M}",
+    "format": "{:%H\n%M}",
     "tooltip-format": "{:%A, %d %B %Y}",
-    "on-click": "uwsm-app -- gnome-clocks",
+    "on-click": "gnome-clocks",
     "interval": 60,
   },
 
@@ -104,9 +92,9 @@
 
   "pulseaudio": {
     // Stacked: Icon on top, Volume % below
-    "format": "{icon} ",
+    "format": "{icon}\n{volume}",
     "format-muted": "󰖁",
-    "on-click": "uwsm-app -- pavucontrol",
+    "on-click": "pavucontrol",
     "format-icons": ["", "", ""],
     "tooltip-format": "Volume: {volume}%",
   },
@@ -124,7 +112,7 @@
     "return-type": "json",
     "exec": "$HOME/user_scripts/waybar/network/network_meter_calling.sh --vertical",
     "interval": 1,
-    "on-click": "uwsm-app -- kitty --class wifitui -e wifitui",
+    "on-click": "kitty --class wifitui -e wifitui",
     "on-click-right": "nmcli radio wifi on",
     "on-click-middle": "nmcli radio wifi off",
   },
@@ -132,6 +120,7 @@
   "custom/power": {
     "format": "",
     "tooltip": false,
-    "on-click": "uwsm-app -- ~/user_scripts/wlogout/wlogout_scale.sh",
+    "on-click": "wlogout",
+    // "on-click": "~/.config/wlogout/wlogout_scale.sh",
   },
 }

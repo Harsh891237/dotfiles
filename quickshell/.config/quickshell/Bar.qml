@@ -28,8 +28,8 @@ anchors {
 margins { 
     left: 1
     right: 7
-    top: 17
-    bottom: 17
+    top: 200
+    bottom: 200
 }
 color: "transparent"
 implicitWidth: 60 // e.g., 50px for the bar + 10px for shadow space
@@ -47,8 +47,8 @@ RectangularShadow {
 Rectangle {
     id: bar
     width: 52
-    radius: 30
-    color: Theme.background
+    radius: 50
+    color: Theme.on_secondary
     // border.width: 1
     // border.color: "#918f8a"
     
@@ -64,10 +64,12 @@ Rectangle {
         anchors.bottomMargin: 10  // Critical: Stops items from hitting the bottom edge
         spacing: 0                // We control spacing manually between big groups
 
+        Clock_date { Layout.alignment: Qt.AlignHCenter }
+
         // --- TOP SECTION (Workspaces) ---
         Workspaces {
             Layout.alignment: Qt.AlignHCenter
-            Layout.topMargin: 10
+            Layout.topMargin: 15
             Layout.bottomMargin: 20 
         }
 
@@ -80,26 +82,23 @@ Rectangle {
         // --- BOTTOM SECTION (Stats & Tray) ---
         ColumnLayout {
             Layout.alignment: Qt.AlignHCenter
-            spacing: 20 // Consistent spacing between CPU, Clock, Audio, etc.
+            spacing: 19 // Consistent spacing between CPU, Clock, Audio, etc.
 
             // Hardware Stats
-            Cpu { 
-                Layout.alignment: Qt.AlignHCenter
-                // Layout.preferredHeight: 9
-                Layout.bottomMargin: 9
-            }
-            Memory { 
-                Layout.alignment: Qt.AlignHCenter 
-                Layout.bottomMargin: 5
-            }
-
-            // System Info
-            Clock_date { Layout.alignment: Qt.AlignHCenter }
+            // Cpu { 
+            //     Layout.alignment: Qt.AlignHCenter
+            //     // Layout.preferredHeight: 9
+            //     Layout.bottomMargin: 20
+            // }
+            // Memory { 
+            //     Layout.alignment: Qt.AlignHCenter 
+            //     Layout.bottomMargin: 12
+            // }
             
             // Controls
             Audio   { Layout.alignment: Qt.AlignHCenter }
             Network { Layout.alignment: Qt.AlignHCenter }
-            Battery { Layout.alignment: Qt.AlignHCenter }
+            Battery { Layout.topMargin: -7; Layout.alignment: Qt.AlignHCenter }
             
             // Tray (At the very bottom of the content stack)
             SysTray { 

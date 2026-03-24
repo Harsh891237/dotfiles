@@ -8,12 +8,10 @@ Column {
     id: root
     spacing: 5
     
-    
     Repeater {
         // SystemTray.items is the list of active tray entries
         model: SystemTray.items
         
-
         delegate: Item {
             // Set the size of the tray icon container
             width: 30
