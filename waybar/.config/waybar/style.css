@@ -1,12 +1,17 @@
 @import url("../../.config/waybar/colors.css");
 
 * {
-  font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
-  font-size: 13px;
-  font-weight: bold;
+  font-family:
+    "Rubik", "JetBrains Mono Nerd Font Propo", "JetBrainsMono Nerd Font",
+    "JetBrains Mono NF", "JetBrains Mono", "Symbols Nerd Font", "Noto Sans",
+    "DejaVu Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
   min-height: 0;
   border: none;
   border-radius: 0;
+  padding: 0;
+  margin: 0;
 }
 
 window#waybar {
@@ -14,87 +19,134 @@ window#waybar {
   color: @on_surface;
 }
 
-/* UNIFIED CAPSULE STYLE */
-#clock,
-#custom-notification,
-#workspaces,
-#group-stats,
-#pulseaudio,
-#battery,
-#custom-network {
-  background-color: @surface_container;
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+tooltip {
+  background-color: @surface_container_high;
   color: @on_surface;
-  border-radius: 100px;
-
-  /* CHANGED: Reduced side margins from 2px to 1px to fit the 38px width */
-  margin: 3px 1px;
-
-  padding: 6px 0px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+  border: 2px solid @outline_variant;
+  border-radius: 12px;
+  padding: 8px 12px;
 }
 
-/* --- TOP SECTION --- */
-#clock {
-  background-color: @primary;
-  color: @on_primary;
-  /* CHANGED: 10px ensures 4 digits (e.g. 12:00) fit comfortably */
-  font-size: 10px;
-  padding-bottom: 7px;
+tooltip label {
+  color: @on_surface;
+  padding: 4px;
 }
 
-#group-stats {
-  background-color: @surface_container_low;
-  padding: 8px 0;
+/* ═══════════════════════════════════════════════════════════════════════════
+   MAIN BAR SECTIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+/* .modules-left, */
+.modules-center,
+.modules-right {
+  /* background-color: @secondary_container; */
+  background-color: @on_secondary;
+  border-radius: 30px;
+  padding: 10 2 10 2px;
+  margin: 10px 0 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 30 30 30 white; shift_right  shift_bottom gradient inc_intensity */
 }
 
+/* .modules-right {
+  margin-right: 2px;
+  padding-right: 3px;
+} */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BASE MODULE STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#workspaces,
+/* #expandable, */
+#clock,
+#privacy,
 #cpu,
 #memory,
-#temperature {
+#disk,
+#network,
+#bluetooth,
+#pulseaudio,
+#battery,
+#custom-inhibit-suspend,
+#custom-notification,
+#tray,
+#custom-power,
+#custom-separator {
+  padding: 2px 0px 2px 0px;
+  margin: 2px 0px 2px 0px;
+  border-radius: 30px;
   background: transparent;
-  box-shadow: none;
-  margin: 4px 0;
-  padding: 0;
-  font-size: 10px;
-  color: @on_surface_variant;
-
-  /* ADDED: Strong black text-shadow for visibility on light backgrounds */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  /* background-color: blue; */
+  color: @on_surface;
 }
 
-/* ADDED: Critical State Coloring (Red when > 80%) */
-#cpu.critical,
-#memory.critical,
-#temperature.critical {
-  color: @error;
+#clock:hover,
+#custom-net-speed:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#backlight:hover,
+#network:hover,
+#bluetooth:hover,
+#pulseaudio:hover,
+#battery:hover,
+#custom-theme:hover,
+#custom-inhibit-suspend:hover,
+#custom-notification:hover,
+#custom-power:hover {
+  background-color: @surface_container_highest;
 }
 
-#custom-notification {
-  color: @on_surface_variant;
-  padding: 6px 4px 6px 3px;
+/* ═══════════════════════════════════════════════════════════════════════════
+   SEPARATORS
+   ═══════════════════════════════════════════════════════════════════════════ */
+#custom-separator {
+  color: @tertiary;
+  font-size: 12px;
+  padding: 0 2px;
+  margin: 3px 0;
+  opacity: 0.4;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   WORKSPACES
+   ═══════════════════════════════════════════════════════════════════════════ */
+#workspaces {
+  /* background-color: @on_secondary_fixed_variant; */
+  background-color: alpha(@outline_variant, 0.45);
+  padding: 8 0 8 0px;
+  min-width: 1px;
+  margin: 3px 5px;
   border-radius: 30px;
 }
 
-/* --- CENTER SECTION --- */
-#workspaces {
-  background-color: @surface_container_high;
-  padding: 2px 0;
+#workspaces button {
+  padding: 2px 0px;
+  margin: 2px 5px;
+  border-radius: 50px;
+  color: @on_surface_variant;
+  background: transparent;
+  min-width: 22px;
+  min-height: 22px;
+  font-size: 13px;
+  font-weight: 700;
 }
 
-#workspaces button {
-  padding: 0;
-  /* CHANGED: Reduced horizontal margin */
-  margin: 2px 4px;
-  padding: 2px 0;
-  border-radius: 16px;
-  color: @on_surface_variant;
+#workspaces button:hover {
   background-color: @surface_container_highest;
-  transition: all 0.2s ease;
+  color: @primary;
 }
 
 #workspaces button.active {
   background-color: @primary;
-  padding: 8px 0;
+  border-radius: 30px;
+  padding: 8px 0px;
   color: @on_primary;
+  font-weight: 700;
 }
 
 #workspaces button.urgent {
@@ -102,37 +154,265 @@ window#waybar {
   color: @on_error;
 }
 
-#workspaces button:hover {
-  background-color: @on_primary_fixed_variant;
+#workspaces button.special {
+  background-color: @tertiary_container;
+  color: @on_tertiary_container;
+  font-size: 12px;
 }
 
-/* --- BOTTOM SECTION --- */
-#custom-network {
+#workspaces button.empty {
+  color: @outline;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CENTER SECTION
+   ═══════════════════════════════════════════════════════════════════════════ */
+#clock {
+  /* background-color: @primary_container; */
+  color: @on_primary_container;
+  padding: 2px 0px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+#clock:hover {
+  background-color: @primary;
+  color: @on_primary;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HARDWARE STATS MODULES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* #custom-expand {
   font-size: 10px;
-  padding: 8px 0;
+  color: @tertiary;
+  padding: 0px 0px;
+  margin: 0px 0px;
+  border-radius: 8px;
+  background-color: transparent;
+  transition: all 0.2s ease-in-out;
 }
 
-#pulseaudio,
-#battery {
-  /* CHANGED: 10px guarantees '100' fits in 38px width */
-  font-size: 10px;
-  padding: 8px 0;
+.expanded-child {
+  background-color: transparent;
+} */
+
+#cpu,
+#memory,
+#disk {
+  padding: 0px 0px 0px 0px; /* Reduced from 8px */
+  font-size: 12px;
+  border-radius: 10px;
 }
 
-#battery.charging {
+#cpu {
   color: @tertiary;
 }
-#battery.warning {
-  color: @error;
+
+#cpu:hover {
+  color: @on_tertiary_container;
+  background-color: @tertiary_container;
 }
 
+#memory {
+  color: @secondary;
+}
+
+#memory:hover {
+  color: @on_secondary_container;
+  background-color: @secondary_container;
+}
+
+#disk {
+  color: @secondary;
+}
+
+#disk:hover {
+  color: @on_secondary_container;
+  background-color: @secondary_container;
+}
+
+#cpu.warning,
+#memory.warning,
+#disk.warning {
+  color: @error;
+  opacity: 0.85;
+}
+
+#cpu.critical,
+#memory.critical,
+#disk.critical,
+#temperature.critical {
+  color: red;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CONNECTIVITY MODULES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#network {
+  color: @primary;
+  font-size: 13px;
+  min-width: 0;
+  padding: 0px 0px 0px 0px;
+}
+
+#network:hover {
+  background-color: @primary_container;
+  color: @on_primary_container;
+}
+
+#network.disconnected {
+  color: @outline;
+}
+
+#network.disabled {
+  color: @error;
+  opacity: 0.6;
+}
+
+#network.linked {
+  color: @secondary;
+}
+
+#bluetooth {
+  color: @secondary;
+  font-size: 11px;
+  padding: 0px 0px 0px 0px;
+}
+
+#bluetooth:hover {
+  background-color: @secondary_container;
+  color: @on_secondary_container;
+}
+
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @outline;
+  opacity: 0.5;
+}
+
+#bluetooth.connected {
+  color: @primary;
+}
+
+#pulseaudio {
+  color: @tertiary_fixed;
+  font-size: 13px;
+  min-width: 0;
+  padding: 0px 0px 0px 0px;
+}
+
+#pulseaudio:hover {
+  background-color: @tertiary_container;
+  color: @on_tertiary_container;
+}
+
+#pulseaudio.muted {
+  color: @outline;
+  opacity: 0.5;
+}
+
+#battery {
+  background-color: @tertiary;
+  color: @background;
+  font-size: 13px;
+  min-width: 10px;
+  padding: 2px 0px 2px 0px;
+  border-radius: 30px;
+  margin: 0px 6 0 6px;
+}
+
+#battery:hover {
+  background-color: @primary_container;
+  color: @on_primary_container;
+}
+
+/* #battery.charging,
+#battery.plugged,
+#battery.full {
+  color: @tertiary;
+} */
+
+#battery.charging:hover,
+#battery.plugged:hover {
+  background-color: @tertiary_container;
+  color: @on_tertiary_container;
+}
+
+#battery.warning {
+  color: @error_container;
+  opacity: 0.9;
+}
+
+#battery.critical {
+  color: @on_error;
+  background-color: @error;
+  font-weight: 700;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SYSTEM MODULES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+#custom-notification {
+  font-size: 13px;
+  padding: 2px 4px 0px 4px;
+  color: @secondary;
+}
+
+#custom-notification:hover {
+  background-color: @secondary_container;
+  color: @on_secondary_container;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SYSTEM TRAY
+   ═══════════════════════════════════════════════════════════════════════════ */
+#tray {
+  padding: 0px 4px 0px 3px; /* Reduced from 8px to reduce wasted space */
+  margin: 0px 4px 0px 3px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  background-color: @error_container;
+  border-radius: 8px;
+}
+
+#tray menu {
+  background-color: @surface_container_high;
+  border: 2px solid @outline_variant;
+  border-radius: 12px;
+  padding: 8px;
+}
+
+#tray menu menuitem {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: @on_surface;
+}
+
+#tray menu menuitem:hover {
+  background-color: @surface_container_highest;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   POWER BUTTON
+   ═══════════════════════════════════════════════════════════════════════════ */
 #custom-power {
-  /*background-color: @error_container;
-    color: @on_error_container;*/
-  font-size: 16px; /* Slightly smaller icon to match narrow width */
-  border-radius: 100px;
-  margin: 3px 1px;
-  padding: 3px 4px 3px 0px;
+  font-size: 14px;
+  margin-left: 8px;
+  margin-right: 8px;
+  color: @error;
+  background-color: @error_container;
+  border-radius: 30px;
 }
 
 #custom-power:hover {
