@@ -5,7 +5,7 @@ WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 ROFI_ICON_SIZE="180px"
 
 # --- Check dependencies ---
-command -v swww >/dev/null 2>&1 || { echo "swww not found"; exit 1; }
+command -v awww >/dev/null 2>&1 || { echo "swww not found"; exit 1; }
 command -v matugen >/dev/null 2>&1 || { echo "matugen not found"; exit 1; }
 command -v rofi >/dev/null 2>&1 || { echo "rofi not found"; exit 1; }
 
@@ -29,7 +29,7 @@ selected=$(echo -e "$list" | rofi -dmenu -p "Choose Wallpaper" -show-icons -them
 fullpath=$(echo -e "$wallpapers" | grep "/$selected" | head -n 1)
 
 # --- Apply wallpaper ---
-swww img "$fullpath" --transition-type any --transition-duration 2 --transition-fps 60
+awww img "$fullpath" --transition-type any --transition-duration 2 --transition-fps 60
 
 # --- Notification (optional) ---
 notify-send "Wallpaper changed" "$(basename "$fullpath")"
