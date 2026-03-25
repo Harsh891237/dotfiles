@@ -1,0 +1,274 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 4,
+  "height": 32,
+  "margin-top": 5,
+  "margin-bottom": 0,
+  "margin-left": 8,
+  "margin-right": 8,
+  "fixed-center": true,
+  "exclusive": true,
+  "reload_style_on_change": true,
+
+  // ===================================================================
+  // MODULE LAYOUT
+  // ===================================================================
+  "modules-left": [],
+
+  "modules-center": [
+    "clock",
+    "hyprland/workspaces",
+    "network",
+    "pulseaudio",
+    "battery",
+  ],
+  // "group/expandable"
+
+  "modules-right": [
+    "cpu",
+    "memory",
+    "disk",
+    // "network",
+    "bluetooth",
+    // "pulseaudio",
+    // "battery",
+    "custom/separator",
+    "custom/inhibit-suspend",
+    "custom/notification",
+    "tray",
+    "custom/power",
+  ],
+
+  // ===================================================================
+  // SEPARATOR
+  // ===================================================================
+  "custom/separator": {
+    "format": "│",
+    "tooltip": false,
+  },
+
+  // "group/expandable": {
+  //   "orientation": "horizontal",
+  //   "drawer": {
+  //     "transition-duration": 500,
+  //     "children-class": "expanded-child",
+  //     "transition-left-to-right": false,
+  //     "click-to-reveal": true,
+  //   },
+  //   "modules": ["custom/expand", "cpu", "memory", "disk"],
+  // },
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+      "special": "󰠱",
+      "default": "",
+    },
+    "on-click": "activate",
+    "sort-by-number": true,
+    "all-outputs": true,
+    // "show-special": true,
+    "special-visible-only": false,
+    "persistent-workspaces": {},
+    "on-scroll-up": "hyprctl dispatch workspace e-1",
+    "on-scroll-down": "hyprctl dispatch workspace e+1",
+  },
+
+  "clock": {
+    "format": " {:%H:%M}",
+    "format-alt": " {:%A, %d %B %Y  •  %I:%M:%S %p}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+    "timezone": "Asia/Kolkata",
+    "interval": 1,
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+    "on-click": "gnome-clocks",
+    "on-click-middle": "kitty --class peaclock -e peaclock",
+  },
+
+  // "custom/expand": {
+  //   "format": ">",
+  //   "tooltip": false,
+  // },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 2,
+    "on-click": "kitty --class htop -e htop",
+    "tooltip-format": "CPU Usage: {usage}%\nAvg Frequency: {avg_frequency} GHz\n\nLMB: htop\nRMB: sysbench",
+    "states": {
+      "warning": 60,
+      "critical": 80,
+    },
+  },
+
+  "memory": {
+    "format": "󰍛 {percentage}%",
+    "format-alt": "󰍛 {used:0.1f}G",
+    "interval": 3,
+    "on-click-right": "uwsm-app -- kitty --class io_monitor.sh -e $HOME/user_scripts/drives/io_monitor.sh",
+    "tooltip-format": "RAM: {used:0.2f} GiB / {total:0.2f} GiB ({percentage}%)\nAvailable: {avail:0.2f} GiB\nSwap: {swapUsed:0.2f} GiB / {swapTotal:0.2f} GiB\n\nRMB: I/O Monitor",
+    "states": {
+      "warning": 70,
+      "critical": 85,
+    },
+  },
+
+  "disk": {
+    "format": "󰋊 {percentage_used}%",
+    "format-alt": "󰋊 {used}/{total}",
+    "path": "/",
+    "interval": 60,
+    "tooltip-format": "Disk Usage: {used}/{total} ({percentage_used}%)\nFree: {free}\nPath: {path}\n\nLMB: Toggle Format\nRMB: File Manager",
+    "states": {
+      "warning": 75,
+      "critical": 90,
+    },
+    "on-click-right": "nautilus",
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{essid} {icon}",
+    "format-ethernet": "󰈀 {bandwidthTotalBytes}",
+    "format-linked": "󰈀 No IP",
+    "format-disconnected": "󰤭 Off",
+    "format-disabled": "󰀝",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi": " {essid}\n\nSignal: {signalStrength}% ({signaldBm} dBm)\nFrequency: {frequency} MHz\nInterface: {ifname}\nIP: {ipaddr}/{cidr}\n\n󰕒 {bandwidthUpBytes}  󰇚 {bandwidthDownBytes}\n\nLMB: wifitui\nRMB: WiFi ON\nMMB: WiFi OFF",
+    "tooltip-format-ethernet": "󰈀 {ifname}\n\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\n\n󰕒 {bandwidthUpBytes}  󰇚 {bandwidthDownBytes}",
+    "tooltip-format-disconnected": "No connection\n\nRMB: Turn WiFi ON",
+    "interval": 2,
+    "on-click": "kitty --class wifitui -e wifitui",
+    "on-click-right": "nmcli radio wifi on && notify-send 'WiFi' 'Turned ON'",
+    "on-click-middle": "nmcli radio wifi off && notify-send 'WiFi' 'Turned OFF'",
+  },
+
+  "bluetooth": {
+    "format": "󰂯",
+    "format-on": "󰂯",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱 {num_connections}",
+    "format-connected-battery": "󰂱 {device_battery_percentage}%",
+    "tooltip-format": "{controller_alias}\n{controller_address}\n\nLMB: Blueman\nRMB: Bluetui",
+    "tooltip-format-off": "Bluetooth OFF\n\nLMB: Blueman\nRMB: Bluetui",
+    "tooltip-format-connected": "{controller_alias}\n{controller_address}\n\n{device_enumerate}\n\nLMB: Blueman\nRMB: Bluetui",
+    "tooltip-format-enumerate-connected": " {device_alias}",
+    "tooltip-format-enumerate-connected-battery": " {device_alias} ({device_battery_percentage}%)",
+    "on-click": "blueman-manager",
+    "interval": 5,
+  },
+
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "󰖁 Mute",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-bluetooth-muted": "󰂲 Mute",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰋎",
+      "headset": "󰋎",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["󰕿", "󰖀", "󰕾"],
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "kitty --class cava -e cava",
+    "on-click-middle": "swayosd-client --output-volume mute-toggle",
+    "on-scroll-up": "swayosd-client --output-volume raise",
+    "on-scroll-down": "swayosd-client --output-volume lower",
+    "tooltip-format": "{desc}\nVolume: {volume}%\n\nLMB: Pavucontrol\nRMB: Cava\nMMB: Mute Toggle\nScroll: Volume",
+    "scroll-step": 5,
+    "max-volume": 150,
+  },
+
+  "battery": {
+    "format": "{capacity}",
+    "format-alt": " {power:.1f}W {icon}",
+    "format-charging": "󰂄",
+    "format-plugged": "󰂄",
+    "format-full": "Full 󱟢",
+    // "format-warning": "{icon} {capacity}%",
+    // "format-critical": "󰂃 {capacity}%",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 5,
+    "states": {
+      "warning": 30,
+      "critical": 15,
+    },
+    "tooltip-format": "{timeTo}\nHealth: {health}%\nPower Draw: {power:.2f} W\nCycles: {cycles}",
+  },
+
+  "custom/inhibit-suspend": {
+    "format": "{}",
+    "exec": "if pgrep -x 'hypridle' > /dev/null; then echo '{\"text\": \"󰌾\", \"tooltip\": \"Auto-suspend ENABLED\\nClick to disable hypridle\", \"class\": \"enabled\"}'; else echo '{\"text\": \"󰅶\", \"tooltip\": \"Auto-suspend DISABLED\\nClick to enable hypridle\", \"class\": \"disabled\"}'; fi",
+    "return-type": "json",
+    "interval": 5,
+    "signal": 9,
+    "on-click": "uwsm-app -- ~/user_scripts/waybar/toggle_hypridle.sh",
+    "escape": true,
+  },
+
+  "custom/notification": {
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂚",
+      "dnd-notification": "󱏧",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󱅫",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󱏧",
+      "dnd-inhibited-none": "󰂛",
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+    "tooltip-format": "Notifications\n\nLMB: Toggle Panel\nRMB: Do Not Disturb",
+  },
+
+  "tray": {
+    "icon-size": 12,
+    "spacing": 6, // Reduced from 8 to 5 to tighten space
+    "show-passive-items": true,
+  },
+
+  "custom/power": {
+    "format": "⏻",
+    "tooltip-format": "Power Menu\n\nLMB: Wlogout\nRMB: Lock Screen",
+    "on-click": "wlogout",
+    "on-click-right": "hyprlock",
+  },
+}

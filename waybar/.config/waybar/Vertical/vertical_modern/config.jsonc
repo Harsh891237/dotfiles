@@ -1,0 +1,101 @@
+{
+  "layer": "top",
+  "position": "right",
+  "spacing": 0,
+  "width": 30,
+  "margin-top": 15,
+  "margin-bottom": 15,
+  "margin-left": -1,
+  "margin-right": 5,
+  "fixed-center": true,
+  "reload_style_on_change": true,
+
+  // ===================================================================
+  // MODULE LAYOUT
+  // ===================================================================
+  "modules-left": ["clock", "group/stats"],
+
+  "modules-center": ["hyprland/workspaces"],
+
+  "modules-right": ["network", "pulseaudio", "battery"],
+
+  // ===================================================================
+  // MODULE CONFIGURATION
+  // ===================================================================
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "persistent-workspaces": {},
+  },
+
+  "group/stats": {
+    "orientation": "vertical",
+    "modules": ["cpu", "memory"],
+  },
+
+  "cpu": {
+    "format": "\n{usage}",
+    "interval": 2,
+    "on-click": "uwsm-app -- kitty --class htop -e htop",
+    "tooltip-format": "CPU: {usage}%",
+    "states": {
+      "critical": 80,
+    },
+  },
+
+  "memory": {
+    "format": "\n{percentage}",
+    "interval": 2,
+    "on-click": "uwsm-app -- kitty --class io_monitor.sh -e $HOME/user_scripts/drives/io_monitor.sh",
+    "tooltip-format": "Used: {used}GiB",
+    "states": {
+      "critical": 80,
+    },
+  },
+
+  "clock": {
+    "format": "{:%H\n%M}",
+    "tooltip-format": "{:%A, %d %B %Y}",
+    "on-click": "gnome-clocks",
+    "interval": 60,
+  },
+
+  // --- UPDATED MODULES WITH NUMBERS ---
+
+  "pulseaudio": {
+    // Stacked: Icon on top, Volume % below
+    "format": "{icon}\n{volume}",
+    "format-muted": "󰖁\nMute",
+    "on-click": "uwsm-app -- pavucontrol",
+    "format-icons": ["", "", ""],
+    "tooltip-format": "Volume: {volume}%",
+  },
+
+  "battery": {
+    // Stacked: Icon on top, Capacity % below
+    "format": "{capacity}",
+    "format-charging": "\n{capacity}",
+    // "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "interval": 5,
+    "tooltip-format": "{timeTo}\nHealth: {health}%",
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": "{essid}\n{icon}",
+    "format-ethernet": "󰈀\n{bandwidthTotalBytes}",
+    "format-linked": "󰈀 No\nIP",
+    "format-disconnected": "󰤭\nOff",
+    "format-disabled": "󰀝",
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip-format-wifi": " {essid}\n\nSignal: {signalStrength}% ({signaldBm} dBm)\nFrequency: {frequency} MHz\nInterface: {ifname}\nIP: {ipaddr}/{cidr}\n\n󰕒 {bandwidthUpBytes}  󰇚 {bandwidthDownBytes}\n\nLMB: wifitui\nRMB: WiFi ON\nMMB: WiFi OFF",
+    "tooltip-format-ethernet": "󰈀 {ifname}\n\nIP: {ipaddr}/{cidr}\nGateway: {gwaddr}\n\n󰕒 {bandwidthUpBytes}  󰇚 {bandwidthDownBytes}",
+    "tooltip-format-disconnected": "No connection\n\nRMB: Turn WiFi ON",
+    "interval": 2,
+    "on-click": "kitty --class wifitui -e wifitui",
+    "on-click-right": "nmcli radio wifi on && notify-send 'WiFi' 'Turned ON'",
+    "on-click-middle": "nmcli radio wifi off && notify-send 'WiFi' 'Turned OFF'",
+  },
+}
