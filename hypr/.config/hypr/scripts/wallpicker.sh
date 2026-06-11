@@ -5,7 +5,7 @@ WALLPAPER_DIR="$HOME/Pictures/Wallpapers"
 ROFI_ICON_SIZE="180px"
 
 # --- Check dependencies ---
-command -v awww >/dev/null 2>&1 || { echo "swww not found"; exit 1; }
+command -v awww >/dev/null 2>&1 || { echo "awww not found"; exit 1; }
 command -v matugen >/dev/null 2>&1 || { echo "matugen not found"; exit 1; }
 command -v rofi >/dev/null 2>&1 || { echo "rofi not found"; exit 1; }
 

@@ -9,6 +9,7 @@ localsend-bin
 matugen-bin
 nautilus-open-any-terminal
 oh-my-posh
+playit-bin
 python-pywal16
 quickshell-git
 ttf-readex-pro

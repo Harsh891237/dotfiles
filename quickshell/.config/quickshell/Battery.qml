@@ -46,7 +46,8 @@ Item {
             radius: 0 // Flat top edge
             color: if ( battery && battery.state === 1) { return "#a6e3a1" }
                    else if ( batteryRoot.p === 1 ){ return Theme.primary }
-                   else { return Qt.alpha(Theme.tertiary,0.9) }
+                   else if ( batteryRoot.p < 0.2 ){ return Qt.alpha(Theme.error,1) }
+                   else { return Qt.alpha(Theme.tertiary,1) }
             
             Behavior on height {
                 NumberAnimation { duration: 400; easing.type: Easing.OutCubic }
