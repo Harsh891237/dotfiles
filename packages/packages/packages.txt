@@ -1,8 +1,6 @@
 acpi
 adw-gtk-theme
 aircrack-ng
-alacritty
-auto-cpufreq
 awww
 bandwhich
 base
@@ -27,7 +25,6 @@ github-cli
 gnome-boxes
 gnome-calculator
 gnome-calendar
-gnome-characters
 gnome-clocks
 gnome-themes-extra
 gnome-tweaks
@@ -41,7 +38,6 @@ gst-plugins-good
 gst-plugins-ugly
 gtk-engine-murrine
 gvfs-mtp
-heroic-games-launcher-bin
 htop
 hwinfo
 hypremoji
@@ -103,7 +99,6 @@ pipewire
 pipewire-alsa
 pipewire-jack
 pipewire-pulse
-playit-bin
 polkit-gnome
 proton-vpn-gtk-app
 python-ipykernel
@@ -118,7 +113,7 @@ qt5ct
 qt6-5compat
 qt6-tools
 qt6ct
-quickshell-git
+quickshell
 reflector
 ripgrep
 rnote
@@ -136,7 +131,6 @@ timeshift
 tree
 ttf-jetbrains-mono
 ttf-jetbrains-mono-nerd
-ttf-readex-pro
 ttyper
 unrar
 unzip
