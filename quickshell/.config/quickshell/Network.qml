@@ -1,63 +1,78 @@
 import Quickshell
-import Quickshell.Io
-import Quickshell.Wayland
-import Quickshell.Widgets
+import Quickshell.Networking
 import QtQuick
 import QtQuick.Layouts
+
 import "."
 
-Item {
+ColumnLayout {
     id: networkRoot
     Layout.bottomMargin: 11
 
+    // 1. Break the loop: rely only on NetworkManager's connection state
+    readonly property bool isConnected: Networking.connectivity !== NetworkConnectivity.None &&
+                                        Networking.connectivity !== NetworkConnectivity.Unknown
 
-    property string connectionIcon: "󰤭"
-    property string tooltipText: "No active connection"
+    // 2. This can now safely depend on isConnected without creating a loop
+    readonly property var activeDevice: isConnected 
+        ? Networking.devices.values.find(device => device.connected) 
+        : null
 
-    Process {
-        id: networkProc
-        command: ["nmcli", "-t", "-f", "DEVICE,TYPE,STATE,CONNECTION", "device"]
-        running: true
+    // 3. Identify the connection type
+    readonly property bool isWifi: isConnected && activeDevice?.type === DeviceType.Wifi
+    readonly property bool isEthernet: isConnected && activeDevice?.type === DeviceType.Wired
 
-        stdout: StdioCollector {
-            onStreamFinished: {
-                const lines = text.trim().split("\n")
-                for (let i = 0; i < lines.length; i++) {
-                    const parts = lines[i].split(":")
-                    if (parts[2] === "connected") {
-                        const type = parts[1]
-                        connectionIcon = type === "ethernet" ? "󰈁" : "󰤥"
-                        return
-                    }
-                }
+    // 4. Changed from 'WifiNetwork' to 'var' to allow undefined values safely
+    readonly property var activeNetwork: isWifi 
+        ? activeDevice?.networks?.values?.find(net => net.connected) 
+        : null
 
-                // fallback if no connected devices
-                connectionIcon = "󰤭"
-                tooltipText = "No active connection"
-            }
+    // 5. Retrieve signal strength (safely defaulting to 0.0)
+    readonly property real signalStrength: activeNetwork?.signalStrength ?? 0.0
+
+    // 6. Reactively determine the connection icon
+    readonly property string connectionIcon: {
+        if (!isConnected) {
+            return "󰤭" // Disconnected icon
         }
-    }
 
-    Timer {
-        interval: 5000
-        running: true
-        repeat: true
-        onTriggered: {
-            networkProc.running = false
-            networkProc.running = true
+        if (isEthernet) {
+            return "󰈁" // Ethernet icon
         }
+
+        if (isWifi) {
+            if (signalStrength >= 0.75) return "󰤨" // Wi-Fi 4 bars (Strong)
+            if (signalStrength >= 0.50) return "󰤥" // Wi-Fi 3 bars (Medium-Strong)
+            if (signalStrength >= 0.25) return "󰤢" // Wi-Fi 2 bars (Medium-Weak)
+            return "󰤟" // Wi-Fi 1 bar (Weak)
+        }
+
+        return "󱚵" // Fallback
     }
 
-    Component.onCompleted: {
-        networkProc.running = false
-        networkProc.running = true
+    // 7. Reactively determine the tooltip text
+    readonly property string tooltipText: {
+        if (!isConnected) {
+            return "No active connection"
+        }
+
+        if (isEthernet) {
+            return "Connected via Ethernet"
+        }
+
+        if (isWifi && activeNetwork) {
+            return `Connected to ${activeNetwork.name} (${Math.round(signalStrength * 100)}%)`
+        }
+
+        return "No active connection"
     }
-    
+
     Row {
-        anchors.centerIn: parent
+        Layout.alignment: Qt.AlignCenter
         spacing: 6
+
         Text {
-            text: connectionIcon
+            text: networkRoot.connectionIcon
             font.pixelSize: 16
             color: Theme.on_background
             font.family: "JetBrainsMono Nerd Font Propo"

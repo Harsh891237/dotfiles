@@ -1,16 +1,10 @@
 //@ pragma UseQApplication
 
-import Quickshell
-import Quickshell.Io
-import Quickshell.Wayland
-import Quickshell.Hyprland
-import Quickshell.Widgets
-import Quickshell.Services.UPower
+
 import QtQuick
-import QtQuick.Effects
-import QtQuick.Controls
+
 import QtQuick.Layouts
-import Qt5Compat.GraphicalEffects
+
 import "."
 ColumnLayout {
     id: clockContainer
@@ -25,7 +19,7 @@ ColumnLayout {
         font.family: "Rubik"
         font.weight: Font.Bold
         color: Theme.primary
-        
+
         Layout.topMargin: 6
     }
 
@@ -56,7 +50,7 @@ ColumnLayout {
         font.family: "Rubik"
         color: Theme.on_surface_variant
     }
-    
+
     Text {
         id: dateMonthDay
         Layout.alignment: Qt.AlignHCenter
@@ -64,7 +58,7 @@ ColumnLayout {
         font.family: "Rubik"
         color: Theme.on_surface_variant
     }
-    
+
     Text {
         id: dateMonth
         Layout.alignment: Qt.AlignHCenter
@@ -77,7 +71,7 @@ ColumnLayout {
 
     // --- Update Logic ---
     Timer {
-        interval: 1000
+        interval: 1000*60 // in ms (1 min)
         running: true
         repeat: true
         onTriggered: updateClock()
@@ -85,7 +79,8 @@ ColumnLayout {
 
     Component.onCompleted: updateClock()
 
-    function updateClock() {
+    function updateClock()
+    {
         const now = new Date()
         timeHour.text = Qt.formatTime(now, "hh")
         timeMinute.text = Qt.formatTime(now, "mm")

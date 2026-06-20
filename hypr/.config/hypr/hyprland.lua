@@ -21,15 +21,10 @@ hl.monitor({
 -------------------
 
 hl.on("hyprland.start", function()
-    -- hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
-    -- hl.exec_cmd("bash ~/.config/hypr/scripts/portal.sh")
-    -- hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE")
-    -- hl.exec_cmd(
-    --     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP HYPRLAND_INSTANCE_SIGNATURE")
-    hl.exec_cmd(
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP HYPRLAND_INSTANCE_SIGNATURE")
-    hl.exec_cmd(
-        "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_TYPE XDG_SESSION_DESKTOP HYPRLAND_INSTANCE_SIGNATURE")
+    hl.exec_cmd("systemctl --user start hyprland-session.target")
+    hl.exec_cmd("dbus-update-activation-environment --all")
+    hl.exec_cmd("sleep 1 && dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
+    hl.exec_cmd("sleep 1 && systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP")
     hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("quickshell --config ~/.config/quickshell")
     hl.exec_cmd("blueman-applet")
@@ -46,6 +41,10 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("hyprctl setcursor macOS 27")
 end)
 
+hl.on("hyprland.shutdown", function()
+    os.execute("systemctl --user stop hyprland-session.target && sleep 0.1")
+end)
+
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -53,10 +52,10 @@ end)
 
 hl.env("COLOR_SCHEME", "prefer-dark")
 hl.env("QS_ICON_THEME", "Papirus")
-hl.env("HYPRCURSOR_THEME", "macOS")
-hl.env("HYPRCURSOR_SIZE", "24")
-hl.env("XCURSOR_THEME", "macOS")
-hl.env("XCURSOR_SIZE", "24")
+-- hl.env("HYPRCURSOR_THEME", "macOS")
+-- hl.env("HYPRCURSOR_SIZE", "24")
+-- hl.env("XCURSOR_THEME", "macOS")
+-- hl.env("XCURSOR_SIZE", "24")
 
 -- xdg specifications
 hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
@@ -154,31 +153,22 @@ hl.config({
 
 -- Default curves and animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
-hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
-hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
-hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
+hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1 } } })
+hl.curve("linear", { type = "bezier", points = { { 0, 0 }, { 1, 1 } } })
 
--- Default springs
-hl.curve("easy", { type = "spring", mass = 1, stiffness = 71.2633, dampening = 15.8273644 })
-
-hl.animation({ leaf = "global", enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "border", enabled = true, speed = 5.39, bezier = "easeOutQuint" })
-hl.animation({ leaf = "windows", enabled = true, speed = 4.79, spring = "easy" })
-hl.animation({ leaf = "windowsIn", enabled = true, speed = 4.1, spring = "easy", style = "popin 87%" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.49, bezier = "linear", style = "popin 87%" })
-hl.animation({ leaf = "fadeIn", enabled = true, speed = 1.73, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeOut", enabled = true, speed = 1.46, bezier = "almostLinear" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3.03, bezier = "quick" })
-hl.animation({ leaf = "layers", enabled = true, speed = 3.81, bezier = "easeOutQuint" })
-hl.animation({ leaf = "layersIn", enabled = true, speed = 4, bezier = "easeOutQuint", style = "fade" })
-hl.animation({ leaf = "layersOut", enabled = true, speed = 1.5, bezier = "linear", style = "fade" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.79, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.39, bezier = "almostLinear" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
-hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" })
+hl.animation({ leaf = "global", enabled = true, speed = 3, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windows", enabled = true, speed = 3, bezier = "easeOutQuint" })
+hl.animation({ leaf = "windowsIn", enabled = true, speed = 3, bezier = "easeOutQuint", style = "popin 92%" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 2.6, bezier = "easeOutQuint", style = "popin 92%" })
+hl.animation({ leaf = "border", enabled = true, speed = 3, bezier = "quick" })
+hl.animation({ leaf = "fade", enabled = true, speed = 2.5, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeIn", enabled = true, speed = 2.5, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeOut", enabled = true, speed = 2.5, bezier = "almostLinear" })
+hl.animation({ leaf = "layers", enabled = true, speed = 7, bezier = "easeOutQuint", style = "popin 90%" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 3, bezier = "easeOutQuint" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 7, bezier = "easeOutQuint" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 3.5, bezier = "easeOutQuint", style = "slidefadevert 30%" })
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
@@ -308,7 +298,8 @@ local floating_apps = {
     { class = "^(org.gnome.Calendar)$",     size = { 1530, 860 } },
     { class = "^(xdg-desktop-portal-gtk)$", size = { 1250, 680 } },
     { class = "^(Waydroid)$",               rounding = 0 },
-    { class = "^(org.gnome.Calculator)$",   size = { 580, 860 } }
+    { class = "^(org.gnome.Calculator)$",   size = { 580, 860 } },
+    { class = "^(proton.vpn.app.gtk)$", }
 }
 for _, app in ipairs(floating_apps) do
     hl.window_rule({

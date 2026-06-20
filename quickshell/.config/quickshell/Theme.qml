@@ -1,47 +1,48 @@
 pragma Singleton
 import QtQuick
+import Quickshell
 
-QtObject {
+Singleton {
     // --- 1. Primary Colors ---
-    readonly property color primary: "#d7bafb"
-    readonly property color on_primary: "#3b255a"
-    readonly property color primary_container: "#533c73"
-    readonly property color on_primary_container: "#eddcff"
-    readonly property color primary_fixed: "#eddcff"
-    readonly property color on_primary_fixed: "#250e44"
+    readonly property color primary: "#8ad0ee"
+    readonly property color on_primary: "#003545"
+    readonly property color primary_container: "#004d62"
+    readonly property color on_primary_container: "#bbeaff"
+    readonly property color primary_fixed: "#bbeaff"
+    readonly property color on_primary_fixed: "#001f29"
 
     // --- 2. Secondary Colors ---
-    readonly property color secondary: "#cfc2da"
-    readonly property color on_secondary: "#352d40"
-    readonly property color secondary_container: "#4c4357"
-    readonly property color on_secondary_container: "#ebddf7"
-    readonly property color secondary_fixed: "#ebddf7"
-    readonly property color on_secondary_fixed: "#20182a"
+    readonly property color secondary: "#b4cad5"
+    readonly property color on_secondary: "#1e333c"
+    readonly property color secondary_container: "#354a53"
+    readonly property color on_secondary_container: "#cfe6f1"
+    readonly property color secondary_fixed: "#cfe6f1"
+    readonly property color on_secondary_fixed: "#071e26"
 
     // --- 3. Tertiary Colors (Good for accents/charts) ---
-    readonly property color tertiary: "#f2b7c1"
-    readonly property color on_tertiary: "#4b252d"
-    readonly property color tertiary_container: "#653b43"
-    readonly property color on_tertiary_container: "#ffd9df"
-    readonly property color tertiary_fixed: "#ffd9df"
-    readonly property color on_tertiary_fixed: "#321019"
+    readonly property color tertiary: "#c5c3ea"
+    readonly property color on_tertiary: "#2d2d4d"
+    readonly property color tertiary_container: "#444465"
+    readonly property color on_tertiary_container: "#e2dfff"
+    readonly property color tertiary_fixed: "#e2dfff"
+    readonly property color on_tertiary_fixed: "#181837"
 
     // --- 4. Background & Surface (The most important for Bars) ---
-    readonly property color background: "#151218"
-    readonly property color on_background: "#e7e0e8"
-    
-    readonly property color surface: "#151218"
-    readonly property color on_surface: "#e7e0e8"
-    
-    readonly property color surface_variant: "#4a454e"
-    readonly property color on_surface_variant: "#ccc4cf"
+    readonly property color background: "#0f1417"
+    readonly property color on_background: "#dee3e6"
+
+    readonly property color surface: "#0f1417"
+    readonly property color on_surface: "#dee3e6"
+
+    readonly property color surface_variant: "#40484c"
+    readonly property color on_surface_variant: "#c0c8cc"
 
     // Surface Containers (Best for panels/popups - Darker/Lighter shades)
-    readonly property color surface_container_lowest: "#100d12"
-    readonly property color surface_container_low: "#1d1a20"
-    readonly property color surface_container: "#211e24"
-    readonly property color surface_container_high: "#2c292f"
-    readonly property color surface_container_highest: "#37333a"
+    readonly property color surface_container_lowest: "#0a0f11"
+    readonly property color surface_container_low: "#171c1f"
+    readonly property color surface_container: "#1b2023"
+    readonly property color surface_container_high: "#252b2d"
+    readonly property color surface_container_highest: "#303638"
 
     // --- 5. Errors ---
     readonly property color error: "#ffb4ab"
@@ -50,13 +51,13 @@ QtObject {
     readonly property color on_error_container: "#ffdad6"
 
     // --- 6. Outlines (Borders) ---
-    readonly property color outline: "#958e99"
-    readonly property color outline_variant: "#4a454e"
+    readonly property color outline: "#8a9296"
+    readonly property color outline_variant: "#40484c"
 
     // --- 7. Inverse (High Contrast) ---
-    readonly property color inverse_surface: "#e7e0e8"
-    readonly property color inverse_on_surface: "#322f35"
-    readonly property color inverse_primary: "#6b538c"
+    readonly property color inverse_surface: "#dee3e6"
+    readonly property color inverse_on_surface: "#2c3134"
+    readonly property color inverse_primary: "#0d6681"
 
     // --- 8. Shadow / Scrim ---
     readonly property color shadow: "#000000"

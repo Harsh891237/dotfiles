@@ -9,6 +9,8 @@ fi
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+export QML_IMPORT_PATH="/usr/lib/qt6/qml"
+
 ZSH_THEME="robbyrussell"
 
 # --- Plugins ---

@@ -1,5 +1,4 @@
 import QtQuick
-import QtQuick.Layouts
 import Quickshell
 import Quickshell.Widgets
 import Quickshell.Services.SystemTray
@@ -40,25 +39,26 @@ Column {
                 const needsMenu = modelData.onlyMenu || modelData.category >=2 ;
                 if (mouse.button === Qt.LeftButton)
                 {
-                if (needsMenu){
-                    menuAnchor.open();
-                }
-                else {
-                    modelData.activate();
-                }
-            } else if (mouse.button === Qt.RightButton) {
-            // Right click opens the context menu
-            menuAnchor.open();
+                    if (needsMenu)
+                    {
+                        menuAnchor.open();
+                    }
+                    else {
+                        modelData.activate();
+                    }
+                } else if (mouse.button === Qt.RightButton) {
+                // Right click opens the context menu
+                menuAnchor.open();
+            }
         }
     }
-}
 
-// The anchor that positions and displays the tray menu
-QsMenuAnchor {
-    id: menuAnchor
-    anchor.item: parent
-    menu: modelData.menu // Binds to the specific app's menu
-}
+    // The anchor that positions and displays the tray menu
+    QsMenuAnchor {
+        id: menuAnchor
+        anchor.item: parent
+        menu: modelData.menu // Binds to the specific app's menu
+    }
 }
 }
 

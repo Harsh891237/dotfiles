@@ -6,11 +6,13 @@ import QtQuick
 import QtQuick.Layouts
 import "."
 
+ColumnLayout {
+Layout.alignment: Qt.AlighHCenter
 Column {
     id: workspacesColumn
     spacing: 20
     width: parent.width
-    Layout.alignment: Qt.AlighHCenter
+    // Layout.alignment: Qt.AlighHCenter
 
     Repeater {
         model: 10
@@ -86,4 +88,5 @@ Column {
             }
         }
     }
+}
 }

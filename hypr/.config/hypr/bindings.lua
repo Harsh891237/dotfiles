@@ -22,7 +22,7 @@ hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_sh
 hl.bind(mainMod .. " + SHIFT + Z", hl.dsp.exec_cmd("hyprctl keyword decoration:screen_shader ''"))
 
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("pkill rofi || " .. menu))
+hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("pkill rofi || " .. menu))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("zen-browser"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("code"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
