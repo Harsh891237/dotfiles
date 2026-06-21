@@ -5,4 +5,5 @@ wlogout/.config/wlogout/colors.css
 alacritty/.config/alacritty/colors.toml
 kitty/.config/kitty/colors.toml
 quickshell/.config/quickshell/.qmlls.ini
+quickshell/.config/quickshell/Theme.qml
 
