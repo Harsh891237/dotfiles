@@ -36,7 +36,7 @@ notify-send "Wallpaper changed" "$(basename "$fullpath")"
 
 # --- Apply Matugen theme ---
 echo "Running matugen..."
-matugen image "$fullpath"
+matugen image "$fullpath" --source-color-index 0
 
 # --- Reload terminal colors dynamically ---
 echo "Attempting to change terminal colors..."
