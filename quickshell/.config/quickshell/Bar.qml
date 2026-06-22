@@ -1,6 +1,7 @@
 // qmllint disable uncreatable-type unqualified
 
 import Quickshell
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Effects
 import QtQuick.Layouts
@@ -39,7 +40,7 @@ PanelWindow {
         id: bar
         width: 52
         radius: 0
-        color: Theme.on_secondary
+        color: Theme.on_secondary_fixed
         // border.width: 1
         // border.color: "#918f8a"
 

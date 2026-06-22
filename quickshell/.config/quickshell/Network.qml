@@ -1,7 +1,9 @@
 import Quickshell
+import Quickshell.Hyprland
 import Quickshell.Networking
 import QtQuick
 import QtQuick.Layouts
+import QtQuick.Controls
 
 import "."
 
@@ -9,11 +11,10 @@ ColumnLayout {
     id: networkRoot
     Layout.bottomMargin: 11
 
-    // 1. Break the loop: rely only on NetworkManager's connection state
     readonly property bool isConnected: Networking.connectivity !== NetworkConnectivity.None &&
-                                        Networking.connectivity !== NetworkConnectivity.Unknown
+        Networking.connectivity !== NetworkConnectivity.Unknown
 
-    // 2. This can now safely depend on isConnected without creating a loop
+
     readonly property var activeDevice: isConnected 
         ? Networking.devices.values.find(device => device.connected) 
         : null
@@ -22,7 +23,6 @@ ColumnLayout {
     readonly property bool isWifi: isConnected && activeDevice?.type === DeviceType.Wifi
     readonly property bool isEthernet: isConnected && activeDevice?.type === DeviceType.Wired
 
-    // 4. Changed from 'WifiNetwork' to 'var' to allow undefined values safely
     readonly property var activeNetwork: isWifi 
         ? activeDevice?.networks?.values?.find(net => net.connected) 
         : null
@@ -76,6 +76,63 @@ ColumnLayout {
             font.pixelSize: 16
             color: Theme.on_background
             font.family: "JetBrainsMono Nerd Font Propo"
+            
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+                cursorShape: Qt.PointingHandCursor 
+                
+                // Allow tracking mouse position (for tooltips) and right clicks
+                hoverEnabled: true 
+                acceptedButtons: Qt.LeftButton | Qt.RightButton 
+
+                // --- 1. Tooltip ---
+                // ToolTip {
+                //     visible: mouseArea.containsMouse
+                //     text: networkRoot.tooltipText
+                //     delay: 400 // Wait 400ms before showing
+                    
+                //     // Simple styling to match your theme
+                //     contentItem: Text {
+                //         // text: parent.text
+                //         text: "Net"
+                //         color: Theme.on_background
+                //         font.pixelSize: 12
+                //     }
+                //     background: Rectangle {
+                //         color: Theme.surface_container_high
+                //         radius: 6
+                //         border.color: Theme.outline
+                //         border.width: 1
+                //     }
+                // }
+
+                // --- 2. Context Menu (Right Click) ---
+                Menu {
+                    id: contextMenu
+                    
+                    MenuItem {
+                        // Dynamically change text based on current state
+                        text: networkRoot.isWifi ? "Turn Wi-Fi Off" : "Turn Wi-Fi On"
+                        onTriggered: {
+                            // Uses nmcli to toggle wifi directly in the background
+                            let state = networkRoot.isWifi ? "off" : "on"
+                            Hyprland.dispatch(`hl.dsp.exec_cmd("nmcli radio wifi ${state}")`)
+                        }
+                    }
+                }
+
+                // --- 3. Click Handling ---
+                onClicked: (mouse) => {
+                    if (mouse.button === Qt.RightButton) {
+                        // Right-click opens the context menu
+                        contextMenu.popup() 
+                    } else if (mouse.button === Qt.LeftButton) {
+                        // Left-click directly launches Kitty
+                        Hyprland.dispatch('hl.dsp.exec_cmd("kitty -e nmtui")')
+                    }
+                }
+            }
         }
-    }
+    } 
 }

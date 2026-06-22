@@ -2,6 +2,7 @@
 
 import Quickshell
 import Quickshell.Hyprland
+import Quickshell.Wayland
 import QtQuick
 import QtQuick.Layouts
 import "."
@@ -83,8 +84,8 @@ Column {
 
             MouseArea {
                 anchors.fill: parent
-                anchors.margins: -5 
-                onClicked: Hyprland.dispatch("workspace " + (index + 1))
+                anchors.margins: -5
+                onClicked: Hyprland.dispatch("hl.dsp.focus( { workspace = " + (index + 1) + " })")
             }
         }
     }

@@ -37,6 +37,7 @@ hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/gamemode.sh"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("sh ~/.config/waybar/scripts/launch.sh"))
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("qs ipc call wallpaper toggle"))
 hl.bind(mainMod .. " + SHIFT + V",
     hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
 
@@ -74,20 +75,14 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
--- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume",
-    hl.dsp.exec_cmd(
-        "wpctl set-volume -l 1.2 @DEFAULT_AUDIO_SINK@ 3%+ && ~/.config/hypr/scripts/brightness_volume_osd.sh volume"),
-    { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume",
-    hl.dsp.exec_cmd(
-        "wpctl set-volume @DEFAULT_AUDIO_SINK@ 3%- && ~/.config/hypr/scripts/brightness_volume_osd.sh volume"),
-    { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-    { locked = true })
-hl.bind("XF86MonBrightnessUp",
-    hl.dsp.exec_cmd("brightnessctl set +2% && ~/.config/hypr/scripts/brightness_volume_osd.sh brightness"),
-    { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown",
-    hl.dsp.exec_cmd("brightnessctl set 2%- &&  ~/.config/hypr/scripts/brightness_volume_osd.sh brightness"),
-    { locked = true, repeating = true })
+-- Multimedia keys
+local osd_script = os.getenv("HOME") .. "/.config/hypr/scripts/osd_control.sh"
+
+-- Volume
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osd_script .. " vol_up"),   { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osd_script .. " vol_down"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd(osd_script .. " vol_mute"), { locked = true })
+
+-- Brightness
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd(osd_script .. " bright_up"),   { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(osd_script .. " bright_down"), { locked = true, repeating = true })

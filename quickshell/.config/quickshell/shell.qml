@@ -13,7 +13,9 @@ import "."
 ShellRoot {
     property bool enableBar: true
     LazyLoader { 
-	active: enableBar
-	component: Bar{}
+	    active: enableBar
+	    component: Bar{}
     }
+    Osd{}
+    Wallpaper{}
 }
