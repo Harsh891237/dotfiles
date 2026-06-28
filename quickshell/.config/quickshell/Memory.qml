@@ -5,47 +5,47 @@ import Qt5Compat.GraphicalEffects
 import Quickshell
 import Quickshell.Io
 import "."
+
 Item {
-    id: text
-    ColumnLayout {
-        spacing: 0
-        anchors.centerIn: parent
-        Layout.alignment: Qt.AlignVCenter
-        // Icon
-        Text {
-            font.family: "Material Symbols Outlined"
-            font.pixelSize: 17
-            color: Theme.on_background
-            text: "\uf7a3"
-        }
-        // Percentage
-        Text {
-            font.family: "Rubik"
-            font.pixelSize: 14
-            color: Math.floor(percentFree) > 80 ? Theme.error : Theme.on_background
-            text: `${Math.floor(percentFree)}`
-        }
-         
-    }
+   id: text
+   ColumnLayout {
+      spacing: 0
+      anchors.centerIn: parent
+      Layout.alignment: Qt.AlignVCenter
+      // Icon
+      Text {
+         font.family: "Material Symbols Outlined"
+         font.pixelSize: 17
+         color: Theme.on_background
+         text: "\uf7a3"
+      }
+      // Percentage
+      Text {
+         font.family: "Rubik"
+         font.pixelSize: 14
+         color: Math.floor(percentFree) > 80 ? Theme.error : Theme.on_background
+         text: `${Math.floor(percentFree)}`
+      }
+   }
 
-    property real percentFree
+   property real percentFree
 
-    Process {
-        id: memProc
-        command: ["sh", "-c", "free | grep Mem | awk '{print $3/$2 * 100.0}'"]
-        running: true
+   Process {
+      id: memProc
+      command: ["sh", "-c", "free | grep Mem | awk '{print $3/$2 * 100.0}'"]
+      running: true
 
-        stdout: SplitParser {
-            onRead: data => percentFree = data
-        }
-    }
+      stdout: SplitParser {
+         onRead: data => percentFree = data
+      }
+   }
 
-    Timer {
-        interval: 3000
-        running: true
-        repeat: true
-        onTriggered: memProc.running = true
-    }
+   Timer {
+      interval: 3000
+      running: true
+      repeat: true
+      onTriggered: memProc.running = true
+   }
 }
 // import Quickshell
 // import Quickshell.Io
@@ -68,9 +68,9 @@ Item {
 //         // Using your verified working command
 //         command: ["sh", "-c", "free | awk '/Mem:/ {print int($3/$2 * 100)}'"]
 //         running: true // Start immediately
-        
+
 //         stdout: SplitParser {
-//             // No split char needed for a single line output, 
+//             // No split char needed for a single line output,
 //             // but we must convert the raw data to a string.
 //             onRead: data => {
 //                 let str = data.toString().trim();
@@ -99,7 +99,7 @@ Item {
 //     Shape {
 //         anchors.fill: parent
 //         layer.enabled: true
-//         layer.samples: 4 
+//         layer.samples: 4
 
 //         // Background Track (Dark)
 //         ShapePath {
@@ -127,7 +127,7 @@ Item {
 //                 startAngle: -90
 //                 // Use the percentage to determine the circle's "sweep"
 //                 sweepAngle: 360 * (memoryRoot.percentUsed / 100)
-                
+
 //                 Behavior on sweepAngle {
 //                     NumberAnimation { duration: 1000; easing.type: Easing.OutCubic }
 //                 }
@@ -147,7 +147,7 @@ Item {
 //             font.pixelSize: 14
 //             color: "#bac2de"
 //             text: "\uf7a3"
-//         } 
+//         }
 
 //         // Number
 //         Text {

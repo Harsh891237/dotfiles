@@ -101,7 +101,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 hl.config({
     general = {
         gaps_in          = 5,
-        gaps_out         = 15,
+        gaps_out         = 12,
         border_size      = 1,
         col              = {
             active_border   = "rgba(44474fff)",
@@ -116,7 +116,7 @@ hl.config({
     },
 
     decoration = {
-        rounding       = 12,
+        rounding       = 15,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows

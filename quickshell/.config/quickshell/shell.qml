@@ -11,11 +11,35 @@ import Quickshell.Widgets
 import "."
 
 ShellRoot {
-    property bool enableBar: true
-    LazyLoader { 
-	    active: enableBar
-	    component: Bar{}
-    }
-    Osd{}
-    Wallpaper{}
+   AppLauncher {
+      id: persistentLauncher
+   }
+
+   GlobalShortcut {
+      name: "toggle_launcher"
+      description: "Toggles the Quickshell App Launcher"
+      onPressed: {
+         persistentLauncher.visible = !persistentLauncher.visible;
+      }
+   }
+
+   LogoutMenu {
+      id: persistentLogout
+   }
+
+   GlobalShortcut {
+      name: "toggle_logout"
+      description: "Toggles the Logout Menu"
+      onPressed: {
+         persistentLogout.visible = !persistentLogout.visible;
+      }
+   }
+
+   property bool enableBar: true
+   LazyLoader {
+      active: enableBar
+      component: Bar {}
+   }
+   Osd {}
+   Wallpaper {}
 }
