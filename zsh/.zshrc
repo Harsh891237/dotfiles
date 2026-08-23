@@ -48,3 +48,4 @@ alias ff="fastfetch"
 
 # --- Sources ---
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+

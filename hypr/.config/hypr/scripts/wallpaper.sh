@@ -13,3 +13,5 @@ awww img "$WALLPAPER" \
 
 # 2. Update Matugen
 matugen image "$WALLPAPER" --source-color-index 0
+
+kill -SIGUSR1 $(pgrep kitty)

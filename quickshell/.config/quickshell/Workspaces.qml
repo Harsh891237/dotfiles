@@ -16,7 +16,7 @@ ColumnLayout {
       // Layout.alignment: Qt.AlighHCenter
 
       Repeater {
-         model: 10
+         model: 5
 
          Rectangle {
             id: dot

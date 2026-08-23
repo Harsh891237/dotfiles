@@ -1,4 +1,8 @@
 [config]
+reload_apps = true
+
+[config.reload_apps_list]
+kitty = true
 
 [templates.hyprland]
 input_path = '~/.config/matugen/templates/hyprland-colors.conf'
@@ -20,6 +24,10 @@ output_path = '~/.config/alacritty/colors.toml'
 [templates.kitty]
 input_path = '~/.config/matugen/templates/kitty.toml'
 output_path = '~/.config/kitty/colors.toml'
+
+[templates.zen_chrome]
+input_path = '~/.config/matugen/templates/zen.css'
+output_path = '~/.zen/4remuhzc.harsh/chrome/userChrome.css'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'

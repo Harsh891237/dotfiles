@@ -109,14 +109,14 @@ hl.config({
         },
         resize_on_border = false,
         allow_tearing    = false,
-        layout           = "dwindle",
+	layout 		 = "scrolling",
         snap             = {
             enabled = true,
         }
     },
 
     decoration = {
-        rounding       = 15,
+        rounding       = 10,
         rounding_power = 2,
 
         -- Change transparency of focused and unfocused windows
@@ -125,10 +125,10 @@ hl.config({
 
         shadow         = {
             enabled      = true,
-            range        = 13,
-            render_power = 3,
+            range        = 34,
+            render_power = 5,
             offset       = "2 3",
-            color        = "rgba(0, 0, 0, 0.7)",
+            color        = "rgba(0, 0, 0, 0.35)",
         },
 
         blur           = {
@@ -207,6 +207,9 @@ hl.config({
 hl.config({
     scrolling = {
         fullscreen_on_one_column = true,
+	column_width = 0.75,          -- Default column width (0.1 to 1.0)
+        direction = "right",         -- Direction the tape expands ("right", "left", "up", "down")
+        focus_fit_method = 1, -- How columns center when focused ("center" or "fit")
     },
 })
 
@@ -351,3 +354,6 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+package.path = package.path .. ";" .. os.getenv("HOME") .. "/.config/hypremoji/?.lua"
+        require("hypremoji")

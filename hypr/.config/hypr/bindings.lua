@@ -38,7 +38,7 @@ hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("hyprlock"))
 hl.bind(mainMod .. " + SHIFT + G", hl.dsp.exec_cmd("sh ~/.config/hypr/scripts/gamemode.sh"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("sh ~/.config/waybar/scripts/launch.sh"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd("qs ipc call wallpaper toggle"))
-hl.bind(mainMod .. " + SHIFT + V",
+hl.bind(mainMod .. " + SHIFT + C",
     hl.dsp.exec_cmd("cliphist list | rofi -dmenu -display-columns 2 | cliphist decode | wl-copy"))
 
 hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m output --clipboard-only"))
